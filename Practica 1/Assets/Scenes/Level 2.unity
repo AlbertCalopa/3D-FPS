@@ -621,6 +621,7 @@ MonoBehaviour:
   - {fileID: 841893648}
   - {fileID: 1532389934}
   - {fileID: 1306655525}
+  m_HearRangeDistance: 2
 --- !u!195 &1085931258
 NavMeshAgent:
   m_ObjectHideFlags: 0

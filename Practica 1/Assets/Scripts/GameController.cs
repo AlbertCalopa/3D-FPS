@@ -3,6 +3,7 @@ public class GameController : MonoBehaviour
 {
     static GameController m_GameController = null;
     float m_PlayerHealth = 1.0f;
+    FPPlayerController m_Player;
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -34,5 +35,12 @@ public class GameController : MonoBehaviour
     {
         return m_PlayerHealth;
     }
-    
+    public FPPlayerController GetPlayer()
+    {
+        return m_Player;
+    }    
+    public void SetPlayer(FPPlayerController Player)
+    {
+        m_Player = Player;
+    }
 }

@@ -18,6 +18,7 @@ public class DronEnemy : MonoBehaviour
     NavMeshAgent m_NavMeshAgent;
     public List<Transform> m_PatrolTargets;
     int m_CurrentPatrolTargetId = 0;
+    public float m_HearRangeDistance;
     private void Awake()
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -78,6 +79,15 @@ public class DronEnemy : MonoBehaviour
         {
             MoveToNextPatrolPosition();
         }
+        if (HearsPlayer())
+        {
+            SetAlertState();
+        }
+    }
+    bool HearsPlayer()
+    {
+        Vector3 l_PlayerPosition = GameController.GetGameController().GetPlayer().transform.position;
+        return Vector3.Distance(l_PlayerPosition, transform.position) <= m_HearRangeDistance;
     }
     bool PatrolTargetPositionArrived()
     {
@@ -132,5 +142,6 @@ public class DronEnemy : MonoBehaviour
     {
 
     }
+   
 
 }

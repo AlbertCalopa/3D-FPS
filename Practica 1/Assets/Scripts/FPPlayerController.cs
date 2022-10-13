@@ -63,6 +63,7 @@ public class FPPlayerController : MonoBehaviour
     void Start()
     {
         m_Health = GameController.GetGameController().GetPlayerHealth();
+        GameController.GetGameController().SetPlayer(this);
         Debug.Log("Health: " + m_Health);
         m_Yaw = transform.rotation.y;
         m_Pitch = m_PitchController.localRotation.x;
