@@ -192,6 +192,10 @@ public class FPPlayerController : MonoBehaviour
             RaycastHit l_RaycastHit;
             if(Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxShootDistance, m_ShootingLayerMask.value))
             {
+                if(l_RaycastHit.collider.tag == "DroneCollider")
+                {
+                    l_RaycastHit.collider.GetComponent<HitCollider>().Hit();
+                }
                 CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
             }
             SetShootWeaponAnimation();
