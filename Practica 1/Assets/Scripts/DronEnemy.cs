@@ -19,6 +19,12 @@ public class DronEnemy : MonoBehaviour
     public List<Transform> m_PatrolTargets;
     int m_CurrentPatrolTargetId = 0;
     public float m_HearRangeDistance;
+    public float m_VisualConeAngle = 60.0f;
+    public float m_SightDistance = 8.0f;
+
+    public LayerMask m_SightLayerMask;
+    public float m_EyesHeight = 1.8f;
+    public float m_EyesPlayerHeight = 1.8f;
     private void Awake()
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -57,6 +63,10 @@ public class DronEnemy : MonoBehaviour
 
 
         }
+        Vector3 l_PlayerPosition = GameController.GetGameController().GetPlayer().transform.position;
+        Vector3 l_EyesPosition = transform.position + Vector3.up * m_EyesHeight;
+        Vector3 l_PlayerEyesPosition = l_PlayerPosition + Vector3.up * m_EyesPlayerHeight;
+        Debug.DrawLine(l_EyesPosition, l_PlayerEyesPosition, SeesPlayer() ? Color.red : Color.blue);
     }
 
     void SetIdleState()
@@ -88,6 +98,28 @@ public class DronEnemy : MonoBehaviour
     {
         Vector3 l_PlayerPosition = GameController.GetGameController().GetPlayer().transform.position;
         return Vector3.Distance(l_PlayerPosition, transform.position) <= m_HearRangeDistance;
+    }
+    
+    bool SeesPlayer()
+    {
+        Vector3 l_PlayerPosition = GameController.GetGameController().GetPlayer().transform.position;
+        Vector3 l_DirectionToPlayerXZ = l_PlayerPosition - transform.position;
+        l_DirectionToPlayerXZ.y = 0.0f;
+        l_DirectionToPlayerXZ.Normalize();
+        Vector3 l_ForwardXZ = transform.forward;
+        l_ForwardXZ.y = 0.0f;
+        l_ForwardXZ.Normalize();
+        Vector3 l_EyesPosition = transform.position + Vector3.up * m_EyesHeight;
+        Vector3 l_PlayerEyesPosition = l_PlayerPosition + Vector3.up * m_EyesPlayerHeight;
+        Vector3 l_Direction = l_PlayerEyesPosition - l_EyesPosition;
+        float l_Lenght = l_Direction.magnitude;
+        l_Direction /= l_Lenght;
+
+
+        Ray l_Ray = new Ray(l_EyesPosition, l_Direction);
+
+        return Vector3.Distance(l_PlayerPosition, transform.position) < m_SightDistance && Vector3.Dot(l_ForwardXZ, l_DirectionToPlayerXZ) > Mathf.Cos(m_VisualConeAngle * Mathf.Deg2Rad / 2.0f) &&
+            !Physics.Raycast(l_Ray, l_Lenght, m_SightLayerMask.value);
     }
     bool PatrolTargetPositionArrived()
     {
