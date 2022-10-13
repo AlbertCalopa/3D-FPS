@@ -800,8 +800,8 @@ MonoBehaviour:
   m_DebugLockAngleCode: 105
   m_DebugLockKeyCode: 111
   m_Camera: {fileID: 963194227}
-  m_NormalMovementFOV: 130
-  m_RunMovementFOV: 130
+  m_NormalMovementFOV: 60
+  m_RunMovementFOV: 75
   m_FOVSpeed: 4
   m_JumpSpeed: 10
   m_TimeGrounded: 0.1
