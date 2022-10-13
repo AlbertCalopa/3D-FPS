@@ -221,4 +221,22 @@ public class FPPlayerController : MonoBehaviour
         yield return new WaitForSeconds(m_ShootAnimationClip.length);
         m_Shooting = false;
     }
+
+    public float getLife() //devuelve la vida del pj
+    {
+        return m_Health;
+    }
+    public void AddLife(float Life) //añades la vida al pj
+    {
+        m_Health = Mathf.Clamp(m_Health + Life, 0.0f, 1.0f);
+        //Debug.Log(m_Health);
+    }
+
+    public void OnTriggerEnter(Collider other) //si colisiona
+    {
+        if(other.tag == "Item") //con "item"
+        {
+            other.GetComponent<Item>().Pick(this); //lo coge
+        }
+    }
 }

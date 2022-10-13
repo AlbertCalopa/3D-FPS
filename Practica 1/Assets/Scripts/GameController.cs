@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour
         if (m_GameController == null)
         {
             m_GameController = new GameObject("GameController").AddComponent<GameController>();
+            GameControllerData l_GameControllerData = Resources.Load<GameControllerData>("Data");
+            m_GameController.m_PlayerHealth = l_GameControllerData.m_Lifes;
+            Debug.Log("Data loaded with file" + m_GameController.m_PlayerHealth);
         }
         return m_GameController;
     }
