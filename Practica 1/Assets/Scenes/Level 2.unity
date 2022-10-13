@@ -1455,6 +1455,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022120, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_TagString
+      value: DroneCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
 --- !u!1001 &2939872257316827844
