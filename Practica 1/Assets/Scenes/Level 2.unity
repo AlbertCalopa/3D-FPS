@@ -154,6 +154,65 @@ Transform:
   m_Father: {fileID: 1884666944}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -0.21161366, y: 0, z: 0}
+--- !u!1 &78848623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78848624}
+  - component: {fileID: 78848626}
+  - component: {fileID: 78848625}
+  m_Layer: 0
+  m_Name: DronAlaL
+  m_TagString: DroneCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78848624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78848623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1920217499}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &78848625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78848623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d336b97720b75a4db2c5d2f31a7862e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Life: 0.3
+  m_DronEnemy: {fileID: 1085931257}
+--- !u!65 &78848626
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78848623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.29608846, y: 1.0435443, z: 1.409151}
+  m_Center: {x: 0.015497804, y: -0.021772146, z: -0.010427892}
 --- !u!1 &112598822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2700471687845022120, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
@@ -171,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d336b97720b75a4db2c5d2f31a7862e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Life: 0.8
+  m_Life: 0.5
   m_DronEnemy: {fileID: 1085931257}
 --- !u!1 &705507993
 GameObject:
@@ -1160,6 +1219,65 @@ Transform:
   m_Father: {fileID: 945301773}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1887994195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1887994196}
+  - component: {fileID: 1887994198}
+  - component: {fileID: 1887994197}
+  m_Layer: 0
+  m_Name: DronAlaR
+  m_TagString: DroneCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1887994196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887994195}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.46, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1920217499}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1887994197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887994195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d336b97720b75a4db2c5d2f31a7862e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Life: 0.3
+  m_DronEnemy: {fileID: 1085931257}
+--- !u!65 &1887994198
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887994195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31814194, y: 0.9221655, z: 1.4004879}
+  m_Center: {x: -0.03186655, y: -0.08314139, z: -0.02660513}
 --- !u!1 &1908335837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1311,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1920217499 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2700471686872918134, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+  m_PrefabInstance: {fileID: 2700471687957616270}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2035686233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1411,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2051804206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051804207}
+  - component: {fileID: 2051804209}
+  - component: {fileID: 2051804208}
+  m_Layer: 0
+  m_Name: DronAlaArriba
+  m_TagString: DroneCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2051804207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051804206}
+  m_LocalRotation: {x: -0.29251605, y: -0, z: -0, w: 0.9562606}
+  m_LocalPosition: {x: 0, y: 0.34, z: -0.103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1920217499}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -34.017, y: 0, z: 0}
+--- !u!114 &2051804208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051804206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d336b97720b75a4db2c5d2f31a7862e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Life: 0.8
+  m_DronEnemy: {fileID: 1085931257}
+--- !u!65 &2051804209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051804206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11720753, y: 0.4256395, z: 0.13533132}
+  m_Center: {x: 0.012830257, y: 0.12910813, z: 0.018572392}
 --- !u!1 &2085361721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,7 +1623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2700471686872918135, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_HearRangeDistance
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2700471686872918135, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_PatrolTargets.Array.data[0]
@@ -1464,6 +1646,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4300000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
     - target: {fileID: 2700471687845022118, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0616164
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022118, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_Size.y
+      value: 2.2392232
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022118, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_Size.z
+      value: 3.767246
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022118, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0037976585
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022118, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_Center.y
+      value: -0.18176138
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022118, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_Center.z
+      value: 0.21070379
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022118, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -1477,15 +1683,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2700471687845022121, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.34366
+      value: 0.2096326
       objectReference: {fileID: 0}
     - target: {fileID: 2700471687845022121, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.34366
+      value: 0.2096326
       objectReference: {fileID: 0}
     - target: {fileID: 2700471687845022121, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.34366
+      value: 0.2096326
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
