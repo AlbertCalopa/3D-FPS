@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -615,9 +615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d7b307cc4fd294b8d9e8bd12759c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 658046436}
-  text: {fileID: 2027006270}
-  cubo: {fileID: 1722713366}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +779,7 @@ MonoBehaviour:
   m_FOVSpeed: 4
   m_JumpSpeed: 10
   m_TimeGrounded: 0.1
-  m_MaxShootDistance: 10
+  m_MaxShootDistance: 100
   m_ShootingLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
