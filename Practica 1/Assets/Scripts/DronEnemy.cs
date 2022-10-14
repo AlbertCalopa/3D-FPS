@@ -174,6 +174,11 @@ public class DronEnemy : MonoBehaviour
     {
 
     }
+
+    public void Hit(float Life)
+    {
+        Debug.Log("Hit there" + Life);
+    }
    
 
 }
