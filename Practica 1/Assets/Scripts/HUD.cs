@@ -19,6 +19,6 @@ public class HUD : MonoBehaviour
     void Update()
     {
         
-        textHealth.GetComponent<TextMeshProUGUI>().text = "Health: " + fppController.m_Health;
+        textHealth.GetComponent<TextMeshProUGUI>().text = "Health: " + fppController.m_Health * 100.0f;
     }
 }
