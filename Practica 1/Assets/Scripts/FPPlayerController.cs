@@ -56,7 +56,7 @@ public class FPPlayerController : MonoBehaviour
 
     bool m_Shooting = false;
 
-    float m_Health; //el profe el te com life
+    public float m_Health; //el profe el te com life
 
 
 
@@ -103,6 +103,7 @@ public class FPPlayerController : MonoBehaviour
     void Update()
     {
         UpdateInputDebug();
+        //Debug.Log("Health: " + m_Health);
 
         m_TimeOfGround += Time.deltaTime;
         Vector3 l_RightDirection = transform.right;
