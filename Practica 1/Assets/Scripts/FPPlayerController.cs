@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 public class FPPlayerController : MonoBehaviour
 {
 
@@ -60,7 +61,10 @@ public class FPPlayerController : MonoBehaviour
 
     public float m_Shield;
 
+    public GameObject AmmoText;
 
+    float bullets = 30;
+    float MaxBullets = 30;
 
     void Start()
     {
@@ -192,6 +196,7 @@ public class FPPlayerController : MonoBehaviour
         
         void Shoot()
         {
+            bullets--;
             Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
             RaycastHit l_RaycastHit;
             if(Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxShootDistance, m_ShootingLayerMask.value))
@@ -200,6 +205,7 @@ public class FPPlayerController : MonoBehaviour
                 {
                     l_RaycastHit.collider.GetComponent<HitCollider>().Hit();
                 }
+                AmmoText.GetComponent<TextMeshProUGUI>().text = "Ammo: " + bullets + "/" + MaxBullets;
                 CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
             }
             SetShootWeaponAnimation();
