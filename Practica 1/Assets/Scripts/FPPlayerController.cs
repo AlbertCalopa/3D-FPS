@@ -58,11 +58,14 @@ public class FPPlayerController : MonoBehaviour
 
     public float m_Health; //el profe el te com life
 
+    public float m_Shield;
+
 
 
     void Start()
     {
         m_Health = GameController.GetGameController().GetPlayerHealth();
+        m_Shield = GameController.GetGameController().GetPlayerShield();
         GameController.GetGameController().SetPlayer(this);
         Debug.Log("Health: " + m_Health);
         m_Yaw = transform.rotation.y;
@@ -236,6 +239,16 @@ public class FPPlayerController : MonoBehaviour
     {
         m_Health = Mathf.Clamp(m_Health + Life, 0.0f, 1.0f);
         //Debug.Log(m_Health);
+    }
+    
+    public float getShield()
+    {
+        return m_Shield;
+    }
+
+    public void AddShield(float shield)
+    {
+        m_Shield = Mathf.Clamp(m_Shield + shield, 0.0f, 1.0f);
     }
 
     public void OnTriggerEnter(Collider other) //si colisiona

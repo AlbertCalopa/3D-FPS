@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   m_Lifes: 0.5
+  m_Shield: 0.5
