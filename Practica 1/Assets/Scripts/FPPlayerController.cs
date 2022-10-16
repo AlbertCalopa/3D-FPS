@@ -186,16 +186,7 @@ public class FPPlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && CanShoot())
         {
-            if (bullets >= 1)
-            {
-                Shoot();
-            }
-        }
-
-        if (Input.GetKey(KeyCode.R))
-        {
-            bullets = 30;
-            AmmoText.GetComponent<TextMeshProUGUI>().text = "Ammo: " + bullets + "/" + MaxBullets;
+            Shoot();
         }
 
         bool CanShoot()
