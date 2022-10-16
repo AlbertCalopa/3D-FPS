@@ -941,7 +941,6 @@ MonoBehaviour:
   m_ReloadAnimationClip: {fileID: 7400000, guid: 913b6a3ff690b194eb047b999bca5ec8, type: 2}
   m_Health: 0
   m_Shield: 0
-  AmmoText: {fileID: 1229860127}
 --- !u!143 &945301775
 CharacterController:
   m_ObjectHideFlags: 0
