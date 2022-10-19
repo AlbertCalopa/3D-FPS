@@ -84,6 +84,7 @@ public class DronEnemy : MonoBehaviour
     {
         m_State = TState.PATROL;
         m_NavMeshAgent.destination = m_PatrolTargets[m_CurrentPatrolTargetId].position;
+        m_NavMeshAgent.isStopped = false;
     }
     void UpdatePatrolState()
     {
@@ -151,6 +152,8 @@ public class DronEnemy : MonoBehaviour
             }
             else
             {
+                
+                m_NavMeshAgent.isStopped = false;
                 SetPatrolState();
             }
         }
