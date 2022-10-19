@@ -530,6 +530,8 @@ MonoBehaviour:
   m_IdleAnimationClip: {fileID: 7400000, guid: b2f5a67299a57f84eb2ec5e8057d3544, type: 2}
   m_ShootAnimationClip: {fileID: 7400000, guid: de8bb571a63fd22428124e7e1f7a1559, type: 2}
   m_ReloadAnimationClip: {fileID: 7400000, guid: 913b6a3ff690b194eb047b999bca5ec8, type: 2}
+  m_Health: 0
+  m_Shield: 0
 --- !u!143 &945301775
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1591,7 +1593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2700471686872918134, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.59
       objectReference: {fileID: 0}
     - target: {fileID: 2700471686872918134, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_LocalRotation.w

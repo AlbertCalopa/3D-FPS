@@ -137,18 +137,21 @@ public class DronEnemy : MonoBehaviour
     void SetAlertState()
     {
         m_State = TState.ALERT;
+        //transform.Rotate(0, 90 * Time.deltaTime, 0, Space.Self);
     }
     void UpdateAlertState()
     {
-
+        transform.Rotate(0, 90 * Time.deltaTime, 0, Space.Self);       
+        
     }
     void SetIChaseState()
     {
         m_State = TState.CHASE;
+        
     }
     void UpdateChaseState()
     {
-
+        
     }
     void SetAttackState()
     {
