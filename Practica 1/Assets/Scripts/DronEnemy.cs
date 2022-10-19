@@ -25,6 +25,8 @@ public class DronEnemy : MonoBehaviour
     public LayerMask m_SightLayerMask;
     public float m_EyesHeight = 1.8f;
     public float m_EyesPlayerHeight = 1.8f;
+
+    float RotateTimer = 0.0f;
     private void Awake()
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -138,11 +140,24 @@ public class DronEnemy : MonoBehaviour
     {
         m_State = TState.ALERT;
         //transform.Rotate(0, 90 * Time.deltaTime, 0, Space.Self);
+        RotateTimer = 6.0f;
     }
     void UpdateAlertState()
     {
-        transform.Rotate(0, 90 * Time.deltaTime, 0, Space.Self);       
-        
+        if (RotateTimer < 0) {
+            if (SeesPlayer())
+            {
+                m_State = TState.CHASE;
+            }
+            else
+            {
+                SetPatrolState();
+            }
+        }
+        transform.Rotate(0, 90 * Time.deltaTime, 0, Space.Self);
+        m_NavMeshAgent.isStopped = true;
+        RotateTimer -= Time.deltaTime;
+
     }
     void SetIChaseState()
     {
