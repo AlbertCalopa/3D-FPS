@@ -140,10 +140,9 @@ GameObject:
   - component: {fileID: 3861012769748876533}
   - component: {fileID: 4270884651773129968}
   - component: {fileID: 7784375446880200216}
-  - component: {fileID: 3427566792804558240}
   m_Layer: 0
   m_Name: Dron
-  m_TagString: DroneCollider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,17 +223,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0616164, y: 2.2392232, z: 3.767246}
   m_Center: {x: 0.0037976585, y: -0.18176138, z: 0.21070379}
---- !u!114 &3427566792804558240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5478245558158145233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d336b97720b75a4db2c5d2f31a7862e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Life: 0.5
-  m_DronEnemy: {fileID: 0}
