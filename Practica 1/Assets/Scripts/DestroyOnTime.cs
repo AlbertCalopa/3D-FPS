@@ -13,5 +13,6 @@ public class DestroyOnTime : MonoBehaviour
     {
         yield return new WaitForSeconds(m_DestroyOnTime);
         GameObject.Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

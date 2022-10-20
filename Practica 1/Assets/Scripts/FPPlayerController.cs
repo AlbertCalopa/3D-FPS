@@ -50,7 +50,9 @@ public class FPPlayerController : MonoBehaviour
     public LayerMask m_ShootingLayerMask;
 
     public GameObject m_DecalPrefab;
+    TCObjectPool m_DecalsPool;
 
+    [Header("Animations")]
     public Animation m_Animation;
     public AnimationClip m_IdleAnimationClip;
     public AnimationClip m_ShootAnimationClip;
@@ -87,6 +89,7 @@ public class FPPlayerController : MonoBehaviour
         m_StartPosition = transform.position;
         m_StartRotation = transform.rotation;
 
+        m_DecalsPool = new TCObjectPool(10, m_DecalPrefab);
 
     }
 #if UNITY_EDITOR
@@ -219,7 +222,11 @@ public class FPPlayerController : MonoBehaviour
         void CreateShootHitParticles(Collider _Collider, Vector3 Position, Vector3 Normal)
         {
             //Debug.DrawRay(Position, Normal * 5.0f, Color.red, 2.0f);
-            GameObject.Instantiate(m_DecalPrefab, Position, Quaternion.LookRotation(Normal));
+            //GameObject.Instantiate(m_DecalPrefab, Position, Quaternion.LookRotation(Normal));
+            GameObject l_Decal = m_DecalsPool.GetNextElement();
+            l_Decal.SetActive(true);
+            l_Decal.transform.position = Position;
+            l_Decal.transform.rotation = Quaternion.LookRotation(Normal);
         }
 
         
