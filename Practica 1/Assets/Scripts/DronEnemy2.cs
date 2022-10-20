@@ -22,8 +22,9 @@ public class DronEnemy2 : MonoBehaviour
     [SerializeField]
     float HearRangeDistance;
     float VisualConeAngle = 60.0f;
+    [SerializeField]
     float SightDistance = 8.0f;
-    float EyesHeight = 1.8f;
+    float EyesHeight = 0.0f;
     float EyesPlayerHeight = 1.8f;
     float RotateTimer = 0.0f;
 
@@ -55,6 +56,7 @@ public class DronEnemy2 : MonoBehaviour
                 RotateTimer = 6.0f;
                 break;
             case TState.CHASE:
+                NavMeshAgent.isStopped = false;
                 break;
             case TState.ATTACK:
                 break;
@@ -94,6 +96,7 @@ public class DronEnemy2 : MonoBehaviour
                 UpdateAlertState();
                 break;
             case TState.CHASE:
+                UpdateChaseState();
                 break;
             case TState.ATTACK:
                 break;
@@ -133,22 +136,24 @@ public class DronEnemy2 : MonoBehaviour
 
     bool SeesPlayer()
     {
-        Vector3 playerHeadPosition = GameController.GetGameController().GetPlayer().transform.position + Vector3.up * EyesPlayerHeight;
-        Vector3 enemyHeadPosition = transform.position + Vector3.up * EyesHeight;
-        bool isHittingPlayer = false;
+        Vector3 l_PlayerPosition = GameController.GetGameController().GetPlayer().transform.position;
+        Vector3 l_DirectionToPlayerXZ = l_PlayerPosition - transform.position;
+        l_DirectionToPlayerXZ.y = 0.0f;
+        l_DirectionToPlayerXZ.Normalize();
+        Vector3 l_ForwardXZ = transform.forward;
+        l_ForwardXZ.y = 0.0f;
+        l_ForwardXZ.Normalize();
+        Vector3 l_EyesPosition = transform.position + Vector3.up * EyesHeight;
+        Vector3 l_PlayerEyesPosition = l_PlayerPosition + Vector3.up * EyesPlayerHeight;
+        Vector3 l_Direction = l_PlayerEyesPosition - l_EyesPosition;
+        float l_Lenght = l_Direction.magnitude;
+        l_Direction /= l_Lenght;
 
-        RaycastHit hit;
-        Ray ray = new Ray(enemyHeadPosition, (playerHeadPosition - enemyHeadPosition).normalized * SightDistance);
 
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.transform.gameObject.name == "Player")
-            {
-                isHittingPlayer = true;
-            }
-        }
+        Ray l_Ray = new Ray(l_EyesPosition, l_Direction);
 
-        return isHittingPlayer;
+        return Vector3.Distance(l_PlayerPosition, transform.position) < SightDistance && Vector3.Dot(l_ForwardXZ, l_DirectionToPlayerXZ) > Mathf.Cos(VisualConeAngle * Mathf.Deg2Rad / 2.0f) &&
+            !Physics.Raycast(l_Ray, l_Lenght, SightLayerMask.value);
     }
 
     bool PatrolTargetPositionArrived()
@@ -171,6 +176,25 @@ public class DronEnemy2 : MonoBehaviour
             State = TState.PATROL;
         }
         RotateTimer -= Time.deltaTime;
+        if (SeesPlayer())
+        {
+            State = TState.CHASE;
+        }
+    }
+
+    void UpdateChaseState()
+    {
+        Vector3 PlayerPos = GameController.GetGameController().GetPlayer().transform.position;
+        NavMeshAgent.SetDestination(PlayerPos);
+        if(Vector3.Distance(PlayerPos, this.transform.position) < 3.0f)
+        {
+            NavMeshAgent.isStopped = true;
+            State = TState.ATTACK;
+        }
+        if (Vector3.Distance(PlayerPos, this.transform.position) > 6.0f)
+        {
+            State = TState.PATROL;
+        }
     }
 
     void Hit(float Life)
