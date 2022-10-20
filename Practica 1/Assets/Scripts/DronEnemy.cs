@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class DronEnemy : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class DronEnemy : MonoBehaviour
     public float m_EyesPlayerHeight = 1.8f;
 
     float RotateTimer = 0.0f;
+
+    [Header("UI")]
+    public Image m_LifeBarImage;
+    public Transform m_LifeBarAnchorPosition;
+    public RectTransform m_LifeBarRectTransform;
+    float m_Life = 1.0f;
     private void Awake()
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -34,6 +41,7 @@ public class DronEnemy : MonoBehaviour
 
     void Start()
     {
+        m_LifeBarImage.fillAmount = m_Life;
         SetIdleState();
     }
 
@@ -69,6 +77,7 @@ public class DronEnemy : MonoBehaviour
         Vector3 l_EyesPosition = transform.position + Vector3.up * m_EyesHeight;
         Vector3 l_PlayerEyesPosition = l_PlayerPosition + Vector3.up * m_EyesPlayerHeight;
         Debug.DrawLine(l_EyesPosition, l_PlayerEyesPosition, SeesPlayer() ? Color.red : Color.blue);
+        UpdateLifeBarPosition();
     }
 
     void SetIdleState()
@@ -198,7 +207,16 @@ public class DronEnemy : MonoBehaviour
 
     public void Hit(float Life)
     {
+        m_Life -= Life;
+        m_LifeBarImage.fillAmount = m_Life;
         Debug.Log("Hit there" + Life);
+    }
+
+    void UpdateLifeBarPosition()
+    {
+        Vector3 l_position = GameController.GetGameController().GetPlayer().m_Camera.WorldToViewportPoint(m_LifeBarAnchorPosition.position);
+        m_LifeBarRectTransform.anchoredPosition = new Vector3(l_position.x * 1920.0f, -(1080.0f - l_position.y * 1080.0f), 0.0f);
+        m_LifeBarRectTransform.gameObject.SetActive(l_position.z > 0.0f);
     }
    
 
