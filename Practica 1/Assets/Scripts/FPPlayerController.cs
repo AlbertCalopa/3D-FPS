@@ -142,7 +142,11 @@ public class FPPlayerController : MonoBehaviour
         if (Input.GetKey(m_RunKeyCode))
         {
             l_Speed = m_PlayerSpeed * m_FastSpeedMultiplier;
-            l_FOV = Mathf.Lerp(m_Camera.fieldOfView, m_RunMovementFOV, m_FOVSpeed * Time.deltaTime);
+            if (l_Direction != Vector3.zero)
+            {
+                l_FOV = Mathf.Lerp(m_Camera.fieldOfView, m_RunMovementFOV, m_FOVSpeed * Time.deltaTime);
+            }
+            
             //l_FOV = m_RunMovementFOV;
         }
         m_Camera.fieldOfView = l_FOV;
