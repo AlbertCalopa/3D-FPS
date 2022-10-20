@@ -53,4 +53,9 @@ public class GameController : MonoBehaviour
     {
         m_Player = Player;
     }
+
+    public void RestartGame()
+    {
+        m_Player.RestartGame();
+    }
 }

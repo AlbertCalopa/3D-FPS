@@ -16,6 +16,7 @@ public class FPPlayerController : MonoBehaviour
 
     public bool m_UseYawInverted;
     public bool m_UsePitchInverted;
+    
 
     public CharacterController m_CharacterController;
     public float m_PlayerSpeed;
@@ -57,6 +58,9 @@ public class FPPlayerController : MonoBehaviour
 
     bool m_Shooting = false;
 
+    Vector3 m_StartPosition;
+    Quaternion m_StartRotation;
+
     public float m_Health; //el profe el te com life
 
     public float m_Shield;
@@ -84,6 +88,8 @@ public class FPPlayerController : MonoBehaviour
         //#endif
 
         SetIdleWeaponAnimation();
+        m_StartPosition = transform.position;
+        m_StartRotation = transform.rotation;
 
 
     }
@@ -280,5 +286,29 @@ public class FPPlayerController : MonoBehaviour
         {
             other.GetComponent<Item>().Pick(this); //lo coge
         }
+        else if (other.tag == "DeadZone")
+        {
+            Kill();
+        }
+    }
+
+  
+
+
+
+    void Kill()
+    {
+        m_Health = 0.0f;
+        GameController.GetGameController().RestartGame();
+
+    }
+    public void RestartGame() 
+    {
+        m_Health = 1.0f;
+        m_CharacterController.enabled = false;
+        transform.position = m_StartPosition;
+        transform.rotation = m_StartRotation;
+        m_CharacterController.enabled = true;
+
     }
 }
