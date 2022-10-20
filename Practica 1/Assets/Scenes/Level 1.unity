@@ -885,7 +885,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735588428}
   m_LocalRotation: {x: -0.18288292, y: -0.17006837, z: 0.7248007, w: 0.64210176}
-  m_LocalPosition: {x: 75.76, y: 1.53, z: 73.46}
+  m_LocalPosition: {x: 75.94, y: -0.08, z: 73.54}
   m_LocalScale: {x: 6.15117, y: 6.15117, z: 6.1524}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_NormalMovementFOV: 60
   m_RunMovementFOV: 75
   m_FOVSpeed: 4
-  m_JumpSpeed: 10
+  m_JumpSpeed: 5
   m_TimeGrounded: 0.1
   m_MaxShootDistance: 100
   m_ShootingLayerMask:
@@ -1163,7 +1163,6 @@ MonoBehaviour:
   m_ReloadAnimationClip: {fileID: 7400000, guid: 913b6a3ff690b194eb047b999bca5ec8, type: 2}
   m_Health: 0
   m_Shield: 0
-  AmmoText: {fileID: 0}
 --- !u!143 &945301775
 CharacterController:
   m_ObjectHideFlags: 0
