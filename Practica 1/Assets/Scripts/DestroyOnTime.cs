@@ -12,7 +12,7 @@ public class DestroyOnTime : MonoBehaviour
     IEnumerator DestroyOnTimeFn()
     {
         yield return new WaitForSeconds(m_DestroyOnTime);
-        GameObject.Destroy(gameObject);
+        //GameObject.Destroy(gameObject);
         gameObject.SetActive(false);
     }
 }
