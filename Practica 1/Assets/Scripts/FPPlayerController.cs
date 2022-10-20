@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 public class FPPlayerController : MonoBehaviour
 {
 
@@ -59,6 +60,11 @@ public class FPPlayerController : MonoBehaviour
     public float m_Health; //el profe el te com life
 
     public float m_Shield;
+
+    public GameObject AmmoText;
+
+    float bullets = 30;
+    float MaxBullets = 120;
 
 
 
@@ -185,6 +191,22 @@ public class FPPlayerController : MonoBehaviour
             Shoot();
         }
 
+        if (Input.GetMouseButtonDown(0) && CanShoot())
+        {
+            Shoot();
+            if (bullets >= 1)
+            {
+                Shoot();
+            }
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            bullets = 30;
+            MaxBullets = MaxBullets - bullets;
+            AmmoText.GetComponent<TextMeshProUGUI>().text = "Ammo: " + bullets + "/" + MaxBullets;
+        }
+
         bool CanShoot()
         {
             return true;
@@ -192,6 +214,7 @@ public class FPPlayerController : MonoBehaviour
         
         void Shoot()
         {
+            bullets--;
             Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
             RaycastHit l_RaycastHit;
             if(Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxShootDistance, m_ShootingLayerMask.value))
