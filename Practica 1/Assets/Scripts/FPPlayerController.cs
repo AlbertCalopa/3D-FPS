@@ -299,6 +299,10 @@ public class FPPlayerController : MonoBehaviour
         {
             Kill();
         }
+        else if (other.tag == "GaleriaDeTiro")
+        {
+            Debug.Log("a");
+        }
     }
 
   
