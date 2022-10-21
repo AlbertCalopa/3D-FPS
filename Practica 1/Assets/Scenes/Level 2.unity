@@ -693,6 +693,7 @@ MonoBehaviour:
   m_RunKeyCode: 304
   m_DebugLockAngleCode: 105
   m_DebugLockKeyCode: 111
+  m_Reload: 114
   m_Camera: {fileID: 963194227}
   m_NormalMovementFOV: 60
   m_RunMovementFOV: 75
@@ -709,6 +710,8 @@ MonoBehaviour:
   m_ShootAnimationClip: {fileID: 7400000, guid: de8bb571a63fd22428124e7e1f7a1559, type: 2}
   m_ReloadAnimationClip: {fileID: 7400000, guid: 913b6a3ff690b194eb047b999bca5ec8, type: 2}
   m_Health: 0
+  m_bullets: 10
+  m_MaxBullets: 10
   m_Shield: 0
 --- !u!143 &945301775
 CharacterController:
@@ -1735,6 +1738,7 @@ MonoBehaviour:
   m_LifeBarImage: {fileID: 1594446706}
   m_LifeBarAnchorPosition: {fileID: 1814610091}
   m_LifeBarRectTransform: {fileID: 1361602106}
+  LifeItemPrefab: {fileID: 8807922132674378839, guid: a7e3a0baa524b294a9d255b048fcc213, type: 3}
 --- !u!1 &2035686233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1832,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2051804206
 GameObject:
@@ -1983,7 +1987,7 @@ Transform:
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &2700471687957616270
 PrefabInstance:
@@ -1998,7 +2002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2700471686872918134, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2700471686872918134, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2010,7 +2014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2700471686872918134, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.59
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 2700471686872918134, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2137,6 +2141,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 2954963d08a0b044e8f84eece7126e53, type: 2}
     - target: {fileID: 2700471687845022120, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022120, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_TagString
       value: DroneCollider
       objectReference: {fileID: 0}
@@ -2175,7 +2183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2939872256722197108, guid: 78af200c7389eeb418ee568205e41584, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2939872256722197108, guid: 78af200c7389eeb418ee568205e41584, type: 3}
       propertyPath: m_LocalPosition.x

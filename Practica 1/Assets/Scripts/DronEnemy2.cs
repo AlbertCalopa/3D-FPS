@@ -37,6 +37,9 @@ public class DronEnemy2 : MonoBehaviour
     public Transform m_LifeBarAnchorPosition;
     public RectTransform m_LifeBarRectTransform;
     float m_Life = 1.0f;
+
+    public GameObject LifeItemPrefab;
+
     public TState State
     {
         get { return _State; }
@@ -68,7 +71,8 @@ public class DronEnemy2 : MonoBehaviour
                 break;
             case TState.HIT:
                 break;
-            case TState.DIE:                
+            case TState.DIE:
+                NavMeshAgent.isStopped = true;
                 break;
         }
     }
@@ -224,6 +228,10 @@ public class DronEnemy2 : MonoBehaviour
     void Die()
     {
         this.gameObject.SetActive(false);        
+       
+        Instantiate(LifeItemPrefab, this.transform.position, this.transform.rotation);
+        
+
 
     }
 
