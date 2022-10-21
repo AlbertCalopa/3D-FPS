@@ -29,6 +29,8 @@ public class FPPlayerController : MonoBehaviour
     public KeyCode m_RunKeyCode = KeyCode.LeftShift;
     public KeyCode m_DebugLockAngleCode = KeyCode.I;
     public KeyCode m_DebugLockKeyCode = KeyCode.O;
+    public KeyCode m_Reload = KeyCode.R; 
+    
     bool m_AngleLocked = false;
     bool m_AimLocked = true;
 
@@ -69,7 +71,7 @@ public class FPPlayerController : MonoBehaviour
      
     public float m_Shield;
 
-   
+    bool isReloading;
 
 
     void Start()
@@ -140,6 +142,13 @@ public class FPPlayerController : MonoBehaviour
         {
             m_VerticalSpeed = m_JumpSpeed;
         }
+        if (Input.GetKeyDown(m_Reload))
+        {
+            StartCoroutine(Reload());
+
+            
+        }
+
         float l_FOV = m_NormalMovementFOV;
         if (Input.GetKey(m_RunKeyCode))
         {
@@ -210,19 +219,23 @@ public class FPPlayerController : MonoBehaviour
         
         void Shoot()
         {
-            m_bullets--;
-            Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
-            RaycastHit l_RaycastHit;
-            if(Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxShootDistance, m_ShootingLayerMask.value))
+            if (m_bullets > 0 && isReloading == false)
             {
-                if(l_RaycastHit.collider.tag == "DroneCollider")
+                m_bullets--;
+                Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+                RaycastHit l_RaycastHit;
+                if (Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxShootDistance, m_ShootingLayerMask.value))
                 {
-                    l_RaycastHit.collider.GetComponent<HitCollider>().Hit();
+                    if (l_RaycastHit.collider.tag == "DroneCollider")
+                    {
+                        l_RaycastHit.collider.GetComponent<HitCollider>().Hit();
+                    }
+                    CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
                 }
-                CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
+                SetShootWeaponAnimation();
+                m_Shooting = true;
             }
-            SetShootWeaponAnimation();
-            m_Shooting = true;
+            
 
         }
         void CreateShootHitParticles(Collider _Collider, Vector3 Position, Vector3 Normal)
@@ -305,4 +318,16 @@ public class FPPlayerController : MonoBehaviour
         m_CharacterController.enabled = true;
 
     }
+
+    private IEnumerator Reload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(2);
+        m_bullets = m_MaxBullets;
+        isReloading = false;
+
+
+    }
+    
+        
 }
