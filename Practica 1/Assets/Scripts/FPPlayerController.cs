@@ -64,7 +64,9 @@ public class FPPlayerController : MonoBehaviour
     Quaternion m_StartRotation;
 
     public float m_Health; //el profe el te com life
-
+    public float m_bullets = 10;
+    public float m_MaxBullets = 10;
+     
     public float m_Shield;
 
    
@@ -208,7 +210,7 @@ public class FPPlayerController : MonoBehaviour
         
         void Shoot()
         {
-            
+            m_bullets--;
             Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
             RaycastHit l_RaycastHit;
             if(Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxShootDistance, m_ShootingLayerMask.value))
