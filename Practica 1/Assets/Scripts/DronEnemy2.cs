@@ -68,7 +68,7 @@ public class DronEnemy2 : MonoBehaviour
                 break;
             case TState.HIT:
                 break;
-            case TState.DIE:
+            case TState.DIE:                
                 break;
         }
     }
@@ -109,12 +109,14 @@ public class DronEnemy2 : MonoBehaviour
             case TState.HIT:
                 break;
             case TState.DIE:
+                Die();
                 break;
         }
         Vector3 l_PlayerPosition = GameController.GetGameController().GetPlayer().transform.position;
         Vector3 l_EyesPosition = transform.position + Vector3.up * EyesHeight;
         Vector3 l_PlayerEyesPosition = l_PlayerPosition + Vector3.up * EyesPlayerHeight;
         Debug.DrawLine(l_EyesPosition, l_PlayerEyesPosition, SeesPlayer() ? Color.red : Color.blue);
+        
     }
 
     private void LateUpdate()
@@ -211,15 +213,17 @@ public class DronEnemy2 : MonoBehaviour
     {
         m_Life -= Life;
         m_LifeBarImage.fillAmount = m_Life;
+        if (m_Life <= 0)
+        {
+            State = TState.DIE;
+        }
         Debug.Log("Hit there" + Life);
+        Debug.Log(m_Life);
     }
 
     void Die()
     {
-        if(m_Life <= 0)
-        {
-
-        }
+        this.gameObject.SetActive(false);        
 
     }
 
