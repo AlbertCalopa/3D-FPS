@@ -67,8 +67,9 @@ public class FPPlayerController : MonoBehaviour
 
     public float m_Health; //el profe el te com life
     public float m_bullets = 10;
-    public float m_MaxBullets = 10;
-     
+    public float m_MaxBullets = 100;
+    public float m_ChargerBullets = 10; 
+
     public float m_Shield;
 
     bool isReloading;
@@ -77,6 +78,7 @@ public class FPPlayerController : MonoBehaviour
     void Start()
     {
         m_Health = GameController.GetGameController().GetPlayerHealth();
+        m_Shield = GameController.GetGameController().GetPlayerShield();
         m_Shield = GameController.GetGameController().GetPlayerShield();
         GameController.GetGameController().SetPlayer(this);
         Debug.Log("Health: " + m_Health);
@@ -323,9 +325,8 @@ public class FPPlayerController : MonoBehaviour
     {
         isReloading = true;
         yield return new WaitForSeconds(2);
-        m_bullets = m_MaxBullets;
+        m_bullets = m_ChargerBullets;
         isReloading = false;
-
 
     }
     
