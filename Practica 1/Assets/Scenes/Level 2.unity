@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1743,6 +1743,9 @@ MonoBehaviour:
   HearRangeDistance: 0
   SightDistance: 40
   _State: 0
+  m_LifeBarImage: {fileID: 1594446706}
+  m_LifeBarAnchorPosition: {fileID: 1814610091}
+  m_LifeBarRectTransform: {fileID: 1361602106}
 --- !u!1 &2035686233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,12 +2128,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2700471687845022119, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022119, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022119, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022119, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2954963d08a0b044e8f84eece7126e53, type: 2}
     - target: {fileID: 2700471687845022120, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_TagString
       value: DroneCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471687845022120, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2700471687845022121, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_LocalScale.x
