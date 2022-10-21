@@ -8,6 +8,7 @@ TagManager:
   - DroneCollider
   - DeadZone
   - GaleriaDeTiro
+  - ObjetivosGaleria
   layers:
   - Default
   - TransparentFX

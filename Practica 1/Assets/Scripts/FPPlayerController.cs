@@ -74,6 +74,9 @@ public class FPPlayerController : MonoBehaviour
 
     bool isReloading;
 
+    public GameObject pointsText;
+
+    public GameObject StartGaleryText;
 
     void Start()
     {
@@ -123,6 +126,7 @@ public class FPPlayerController : MonoBehaviour
     void Update()
     {
         UpdateInputDebug();
+        ShootingGalery();
         //Debug.Log("Health: " + m_Health);
 
         m_TimeOfGround += Time.deltaTime;
@@ -232,6 +236,10 @@ public class FPPlayerController : MonoBehaviour
                     {
                         l_RaycastHit.collider.GetComponent<HitCollider>().Hit();
                     }
+                    else if (l_RaycastHit.collider.tag == "ObjetivosGaleria")
+                    {
+                        
+                    }
                     CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
                 }
                 SetShootWeaponAnimation();
@@ -301,7 +309,18 @@ public class FPPlayerController : MonoBehaviour
         }
         else if (other.tag == "GaleriaDeTiro")
         {
-            Debug.Log("a");
+            ShootingGalery();
+
+        }
+    }
+
+    void ShootingGalery()
+    {
+        StartGaleryText.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartGaleryText.SetActive(false);
+            pointsText.SetActive(true);
         }
     }
 
