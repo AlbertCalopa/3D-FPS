@@ -4,7 +4,7 @@ public class HitCollider : MonoBehaviour
 {
     public float m_Life;
 
-    public DronEnemy m_DronEnemy;
+    public DronEnemy2 m_DronEnemy;
 
     public void Hit()
     {

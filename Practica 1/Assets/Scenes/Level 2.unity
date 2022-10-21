@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Life: 0.3
-  m_DronEnemy: {fileID: 1085931257}
+  m_DronEnemy: {fileID: 2004417631}
 --- !u!65 &78848626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Life: 0.5
-  m_DronEnemy: {fileID: 1085931257}
+  m_DronEnemy: {fileID: 0}
 --- !u!1 &351287939
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,17 +911,6 @@ Transform:
   m_Father: {fileID: 1884666944}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1085931257 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2700471686872918135, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
-  m_PrefabInstance: {fileID: 2700471687957616270}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004417630}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d856cf27c48a3df48b599a9c0b023c39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1301308193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,7 +1656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Life: 0.3
-  m_DronEnemy: {fileID: 1085931257}
+  m_DronEnemy: {fileID: 2004417631}
 --- !u!65 &1887994198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1886,7 +1875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Life: 0.8
-  m_DronEnemy: {fileID: 1085931257}
+  m_DronEnemy: {fileID: 2004417631}
 --- !u!65 &2051804209
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2094,6 +2083,10 @@ PrefabInstance:
     - target: {fileID: 2700471686872918137, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_Name
       value: Dron
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700471686872918137, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2700471687845022116, guid: d1896e9f03dab5b4dacc9f6dc30e7420, type: 3}
       propertyPath: m_Mesh
