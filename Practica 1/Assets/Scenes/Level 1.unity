@@ -153,7 +153,7 @@ Transform:
   - {fileID: 1510148554}
   m_Father: {fileID: 1884666944}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -6.3254995, y: -5.6004996, z: -0.12233333}
+  m_LocalEulerAnglesHint: {x: -7.584, y: -5.866, z: -0.353}
 --- !u!1 &36152376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,6 +2340,7 @@ MonoBehaviour:
   m_IdleAnimationClip: {fileID: 7400000, guid: b2f5a67299a57f84eb2ec5e8057d3544, type: 2}
   m_ShootAnimationClip: {fileID: 7400000, guid: de8bb571a63fd22428124e7e1f7a1559, type: 2}
   m_ReloadAnimationClip: {fileID: 7400000, guid: 913b6a3ff690b194eb047b999bca5ec8, type: 2}
+  m_RunAnimationClip: {fileID: 7400000, guid: f55beda9514a66a4097322cb36b3bd58, type: 2}
   m_Health: 0
   m_bullets: 10
   m_MaxBullets: 100
@@ -2379,6 +2380,7 @@ Animation:
   - {fileID: 7400000, guid: b2f5a67299a57f84eb2ec5e8057d3544, type: 2}
   - {fileID: 7400000, guid: de8bb571a63fd22428124e7e1f7a1559, type: 2}
   - {fileID: 7400000, guid: 913b6a3ff690b194eb047b999bca5ec8, type: 2}
+  - {fileID: 7400000, guid: f55beda9514a66a4097322cb36b3bd58, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -3520,7 +3522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8324a4441b67c224c84b60eff2111b89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 2.214
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8324a4441b67c224c84b60eff2111b89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

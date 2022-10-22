@@ -60,6 +60,7 @@ public class FPPlayerController : MonoBehaviour
     public AnimationClip m_IdleAnimationClip;
     public AnimationClip m_ShootAnimationClip;
     public AnimationClip m_ReloadAnimationClip;
+    public AnimationClip m_RunAnimationClip; 
 
     bool m_Shooting = false;
 
@@ -74,6 +75,7 @@ public class FPPlayerController : MonoBehaviour
     public float m_Shield;
 
     bool isReloading;
+    bool isRunning;
 
     public GameObject pointsText;
 
@@ -159,17 +161,17 @@ public class FPPlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(m_Reload) && isReloading == false && m_bullets != m_ChargerBullets)
         {
-            StartCoroutine(Reload());
-
-            
+            StartCoroutine(Reload());            
         }
 
         
         if (Input.GetKey(m_RunKeyCode))
         {
             l_Speed = m_PlayerSpeed * m_FastSpeedMultiplier;
-            if (l_Direction != Vector3.zero)
+            if (l_Direction != Vector3.zero && !isReloading)
             {
+                isRunning = true; 
+                SetRunWeaponAnimation();
                 l_FOV = Mathf.Lerp(m_Camera.fieldOfView, m_RunMovementFOV, m_FOVSpeed * Time.deltaTime);
                 
             }
@@ -177,6 +179,8 @@ public class FPPlayerController : MonoBehaviour
             //l_FOV = m_RunMovementFOV;
         } else
         {
+            isRunning = false;
+
             l_FOV = Mathf.Lerp(m_Camera.fieldOfView, m_NormalMovementFOV, m_FOVSpeedReleased * Time.deltaTime);
         }
 
@@ -239,7 +243,7 @@ public class FPPlayerController : MonoBehaviour
         
         void Shoot()
         {
-            if (m_bullets > 0 && isReloading == false)
+            if (m_bullets > 0 && isReloading == false && isRunning == false) 
             {
                 m_bullets--;
                 Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
@@ -287,6 +291,12 @@ public class FPPlayerController : MonoBehaviour
     void SetReloadWeaponAnimation() 
     {
         m_Animation.CrossFade(m_ReloadAnimationClip.name, 0.1f); 
+        m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.1f);
+        StartCoroutine(EndShoot());
+    }
+    void SetRunWeaponAnimation() 
+    {
+        m_Animation.CrossFade(m_RunAnimationClip.name, 0.1f); 
         m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.1f);
         StartCoroutine(EndShoot());
     }
