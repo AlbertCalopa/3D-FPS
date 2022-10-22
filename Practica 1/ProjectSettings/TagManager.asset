@@ -9,6 +9,7 @@ TagManager:
   - DeadZone
   - GaleriaDeTiro
   - ObjetivosGaleria
+  - NoGaleriaDeTiro
   layers:
   - Default
   - TransparentFX

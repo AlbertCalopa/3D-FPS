@@ -350,8 +350,15 @@ public class FPPlayerController : MonoBehaviour
         }
         else if (other.tag == "GaleriaDeTiro")
         {
-            GalleyTrigger.SetActive(false);
             isGaleryActive = true;
+        }
+        else if (other.tag == "NoGaleriaDeTiro")
+        {
+            m_Points = 0;
+            isGaleryActive = false;
+            Gallery.SetActive(false);
+            isGaleryActive = false;
+            pointsActive = false;          
         }
     }
 
@@ -382,7 +389,7 @@ public class FPPlayerController : MonoBehaviour
     public void RestartGame() 
     {
         m_Health = 1;
-        m_Shield = 50;
+        m_Shield = 0.5f;
         m_Points = 0;
         m_bullets = 10;
         m_MaxBullets = 100;
@@ -393,7 +400,6 @@ public class FPPlayerController : MonoBehaviour
         Gallery.SetActive(false);
         isGaleryActive = false;
         pointsActive = false;
-        GalleyTrigger.SetActive(true);
 
 
 

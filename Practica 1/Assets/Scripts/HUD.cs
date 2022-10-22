@@ -31,6 +31,9 @@ public class HUD : MonoBehaviour
         {
             textGallery1.SetActive(true);
             
+        }else
+        {
+            textGallery1.SetActive(false);
         }
 
         if (fppController.pointsActive)
