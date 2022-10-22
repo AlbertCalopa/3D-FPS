@@ -349,7 +349,6 @@ public class FPPlayerController : MonoBehaviour
         {
             GalleyTrigger.SetActive(false);
             isGaleryActive = true;
-
         }
     }
 
