@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Life: 0.5
-  m_DronEnemy: {fileID: 0}
+  m_DronEnemy: {fileID: 2004417631}
 --- !u!1 &351287939
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,6 +698,7 @@ MonoBehaviour:
   m_NormalMovementFOV: 60
   m_RunMovementFOV: 75
   m_FOVSpeed: 4
+  m_FOVSpeedReleased: 10
   m_JumpSpeed: 4
   m_TimeGrounded: 0.1
   m_MaxShootDistance: 10
@@ -709,10 +710,14 @@ MonoBehaviour:
   m_IdleAnimationClip: {fileID: 7400000, guid: b2f5a67299a57f84eb2ec5e8057d3544, type: 2}
   m_ShootAnimationClip: {fileID: 7400000, guid: de8bb571a63fd22428124e7e1f7a1559, type: 2}
   m_ReloadAnimationClip: {fileID: 7400000, guid: 913b6a3ff690b194eb047b999bca5ec8, type: 2}
+  m_RunAnimationClip: {fileID: 0}
   m_Health: 0
   m_bullets: 10
   m_MaxBullets: 10
+  m_ChargerBullets: 10
   m_Shield: 0
+  pointsText: {fileID: 0}
+  StartGaleryText: {fileID: 0}
 --- !u!143 &945301775
 CharacterController:
   m_ObjectHideFlags: 0
