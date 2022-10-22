@@ -78,6 +78,8 @@ public class FPPlayerController : MonoBehaviour
 
     public GameObject StartGaleryText;
 
+    bool GaleryActiva = false;
+
     void Start()
     {
         m_Health = GameController.GetGameController().GetPlayerHealth();
@@ -309,18 +311,21 @@ public class FPPlayerController : MonoBehaviour
         }
         else if (other.tag == "GaleriaDeTiro")
         {
-            ShootingGalery();
+            GaleryActiva = true;
 
         }
     }
 
     void ShootingGalery()
     {
-        StartGaleryText.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(GaleryActiva)
         {
-            StartGaleryText.SetActive(false);
-            pointsText.SetActive(true);
+            StartGaleryText.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartGaleryText.SetActive(false);
+                pointsText.SetActive(true);
+            }
         }
     }
 
