@@ -83,6 +83,10 @@ public class FPPlayerController : MonoBehaviour
 
     bool GaleryActiva = false;
 
+    float Points;  
+        
+
+    
     void Start()
     {
         m_Health = GameController.GetGameController().GetPlayerHealth();
@@ -132,6 +136,7 @@ public class FPPlayerController : MonoBehaviour
     {
         UpdateInputDebug();
         ShootingGalery();
+
         //Debug.Log("Health: " + m_Health);
 
         float l_FOV = m_NormalMovementFOV;
@@ -256,9 +261,14 @@ public class FPPlayerController : MonoBehaviour
                     }
                     else if (l_RaycastHit.collider.tag == "ObjetivosGaleria")
                     {
-                        
+                        Points += 100;
+                        pointsText.GetComponent<TextMeshProUGUI>().text = "Points: " + Points;
+                        l_RaycastHit.collider.GetComponent<GaleriaDeTiro1>().Timer();
                     }
-                    CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
+                    else
+                    {
+                        CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
+                    }
                 }
                 SetShootWeaponAnimation();
                 m_Shooting = true;
@@ -340,6 +350,7 @@ public class FPPlayerController : MonoBehaviour
         else if (other.tag == "GaleriaDeTiro")
         {
             GaleryActiva = true;
+            StartGaleryText.SetActive(true);
 
         }
     }
@@ -347,8 +358,8 @@ public class FPPlayerController : MonoBehaviour
     void ShootingGalery()
     {
         if(GaleryActiva)
-        {
-            StartGaleryText.SetActive(true);
+        {          
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 StartGaleryText.SetActive(false);
