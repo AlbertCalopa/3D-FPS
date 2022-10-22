@@ -37,7 +37,8 @@ public class FPPlayerController : MonoBehaviour
     public Camera m_Camera;
     public float m_NormalMovementFOV = 60.0f;
     public float m_RunMovementFOV = 75.0f;
-    public float m_FOVSpeed = 0.5f;
+    public float m_FOVSpeed = 4f;
+    public float m_FOVSpeedReleased = 10f;  
 
     float m_VerticalSpeed = 0.0f;
     bool m_OnGround = true;
@@ -131,6 +132,8 @@ public class FPPlayerController : MonoBehaviour
         ShootingGalery();
         //Debug.Log("Health: " + m_Health);
 
+        float l_FOV = m_NormalMovementFOV;
+
         m_TimeOfGround += Time.deltaTime;
         Vector3 l_RightDirection = transform.right;
         Vector3 l_ForwardDirection = transform.forward;
@@ -140,6 +143,10 @@ public class FPPlayerController : MonoBehaviour
 
         if (Input.GetKey(m_UpKeyCode))
             l_Direction = l_ForwardDirection;
+        else
+        {
+            l_FOV = Mathf.Lerp(m_Camera.fieldOfView, m_NormalMovementFOV, m_FOVSpeedReleased * Time.deltaTime);
+        }
         if (Input.GetKey(m_DownKeyCode))
             l_Direction -= l_ForwardDirection;
         if (Input.GetKey(m_RightKeyCode))
@@ -150,25 +157,30 @@ public class FPPlayerController : MonoBehaviour
         {
             m_VerticalSpeed = m_JumpSpeed;
         }
-        if (Input.GetKeyDown(m_Reload))
+        if (Input.GetKeyDown(m_Reload) && isReloading == false && m_bullets != m_ChargerBullets)
         {
             StartCoroutine(Reload());
 
             
         }
 
-        float l_FOV = m_NormalMovementFOV;
+        
         if (Input.GetKey(m_RunKeyCode))
         {
             l_Speed = m_PlayerSpeed * m_FastSpeedMultiplier;
             if (l_Direction != Vector3.zero)
             {
                 l_FOV = Mathf.Lerp(m_Camera.fieldOfView, m_RunMovementFOV, m_FOVSpeed * Time.deltaTime);
+                
             }
             
             //l_FOV = m_RunMovementFOV;
+        } else
+        {
+            l_FOV = Mathf.Lerp(m_Camera.fieldOfView, m_NormalMovementFOV, m_FOVSpeedReleased * Time.deltaTime);
         }
-        m_Camera.fieldOfView = l_FOV;
+
+            m_Camera.fieldOfView = l_FOV;
 
         l_Direction.Normalize();
 
@@ -272,6 +284,12 @@ public class FPPlayerController : MonoBehaviour
         m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.1f);
         StartCoroutine(EndShoot());
     }
+    void SetReloadWeaponAnimation() 
+    {
+        m_Animation.CrossFade(m_ReloadAnimationClip.name, 0.1f); 
+        m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.1f);
+        StartCoroutine(EndShoot());
+    }
 
     IEnumerator EndShoot()
     {
@@ -352,7 +370,9 @@ public class FPPlayerController : MonoBehaviour
     private IEnumerator Reload()
     {
         isReloading = true;
+        SetReloadWeaponAnimation();
         yield return new WaitForSeconds(2);
+        m_MaxBullets -= 10 - m_bullets;
         m_bullets = m_ChargerBullets;
         isReloading = false;
 
