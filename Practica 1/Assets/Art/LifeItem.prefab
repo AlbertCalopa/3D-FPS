@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 8807922132674378825}
   - component: {fileID: 8807922132674378838}
   - component: {fileID: 8807922132674378824}
+  - component: {fileID: 1896215969575741957}
   m_Layer: 0
   m_Name: LifeItem
   m_TagString: Item
@@ -143,3 +144,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.88, z: 0}
+--- !u!114 &1896215969575741957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807922132674378839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23de67339d60ff4496c1e610ad0ba24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Life: 0.4

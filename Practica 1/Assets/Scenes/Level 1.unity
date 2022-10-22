@@ -797,7 +797,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LifeItem
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1896215969575741957, guid: a7e3a0baa524b294a9d255b048fcc213, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7e3a0baa524b294a9d255b048fcc213, type: 3}
 --- !u!1 &487092524
 GameObject:

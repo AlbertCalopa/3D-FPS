@@ -341,7 +341,7 @@ public class FPPlayerController : MonoBehaviour
     {
         if(other.tag == "Item") //con "item"
         {
-            other.GetComponent<Item>().Pick(this); //lo coge
+            other.GetComponent<Item>()?.Pick(this); //lo coge
         }
         else if (other.tag == "DeadZone")
         {
