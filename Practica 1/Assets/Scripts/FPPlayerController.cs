@@ -357,8 +357,7 @@ public class FPPlayerController : MonoBehaviour
         {
             m_Points = 0;
             isGaleryActive = false;
-            Gallery.SetActive(false);
-            isGaleryActive = false;
+            Gallery.SetActive(false);            
             pointsActive = false;          
         }
     }
