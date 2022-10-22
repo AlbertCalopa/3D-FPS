@@ -23,9 +23,9 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textHealth.GetComponent<TextMeshProUGUI>().text = "HEALTH: " + fppController.m_Health * 100.0f; 
-        textShield.GetComponent<TextMeshProUGUI>().text = "SHIELD: " + fppController.m_Shield * 100.0f;
-        textAmmo.GetComponent<TextMeshProUGUI>().text = "AMMO: " + fppController.m_bullets + "/" + fppController.m_MaxBullets;
+        textHealth.GetComponent<TextMeshProUGUI>().text = "      : " + fppController.m_Health * 100.0f; 
+        textShield.GetComponent<TextMeshProUGUI>().text = "      : " + fppController.m_Shield * 100.0f;
+        textAmmo.GetComponent<TextMeshProUGUI>().text = "         : " + fppController.m_bullets + "/" + fppController.m_MaxBullets;
 
         if (fppController.isGaleryActive)
         {
@@ -37,7 +37,7 @@ public class HUD : MonoBehaviour
             textGallery1.SetActive(false);
 
             textPoints.SetActive(true);
-            textPoints.GetComponent<TextMeshProUGUI>().text = "POINTS: " + fppController.m_Points;
+            textPoints.GetComponent<TextMeshProUGUI>().text = "      : " + fppController.m_Points + "Pts.";
         }
     }
 }
