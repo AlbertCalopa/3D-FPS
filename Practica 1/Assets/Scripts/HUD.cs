@@ -30,6 +30,7 @@ public class HUD : MonoBehaviour
         if (fppController.isGaleryActive)
         {
             textGallery1.SetActive(true);
+            
         }
 
         if (fppController.pointsActive)
@@ -38,6 +39,10 @@ public class HUD : MonoBehaviour
 
             textPoints.SetActive(true);
             textPoints.GetComponent<TextMeshProUGUI>().text = "      : " + fppController.m_Points + "Pts.";
+        }
+        else
+        {
+            textPoints.SetActive(false);
         }
     }
 }

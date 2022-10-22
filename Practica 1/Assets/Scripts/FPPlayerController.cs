@@ -381,11 +381,21 @@ public class FPPlayerController : MonoBehaviour
     }
     public void RestartGame() 
     {
-        m_Health = 1.0f;
+        m_Health = 1;
+        m_Shield = 50;
+        m_Points = 0;
+        m_bullets = 10;
+        m_MaxBullets = 100;
         m_CharacterController.enabled = false;
         transform.position = m_StartPosition;
         transform.rotation = m_StartRotation;
         m_CharacterController.enabled = true;
+        Gallery.SetActive(false);
+        isGaleryActive = false;
+        pointsActive = false;
+        GalleyTrigger.SetActive(true);
+
+
 
     }
 
@@ -398,7 +408,7 @@ public class FPPlayerController : MonoBehaviour
         m_bullets = m_ChargerBullets;
         isReloading = false;
 
-    }
+}
     
         
 }
