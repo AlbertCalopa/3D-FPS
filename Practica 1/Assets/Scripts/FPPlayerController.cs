@@ -80,7 +80,10 @@ public class FPPlayerController : MonoBehaviour
     public bool isGaleryActive = false;
     public bool pointsActive = false;
 
-    public GameObject GalleyTrigger; 
+
+    public GameObject GalleyTrigger;
+    public GameObject Gallery; 
+
 
 
 
@@ -359,6 +362,7 @@ public class FPPlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Gallery.SetActive(true);
                 pointsActive = true;
                 
             }
