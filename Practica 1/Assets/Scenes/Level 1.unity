@@ -167,7 +167,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enter Galeria de tiro
   m_TagString: GaleriaDeTiro
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -178,13 +178,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36152376}
-  m_LocalRotation: {x: -0, y: 0.99909973, z: -0, w: -0.042423088}
-  m_LocalPosition: {x: 5.912635, y: -3.3199997, z: 15.174856}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.9990483, z: -0, w: -0.043619405}
+  m_LocalPosition: {x: 5, y: -3, z: 15}
+  m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_Children: []
   m_Father: {fileID: 1265505068}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 184.863, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 185, z: 0}
 --- !u!65 &36152378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1447,6 +1447,8 @@ MonoBehaviour:
   textHealth: {fileID: 2027006268}
   textShield: {fileID: 487092524}
   textAmmo: {fileID: 1229860127}
+  textPoints: {fileID: 400856639}
+  textGallery: {fileID: 721211990}
   fppController: {fileID: 945301774}
 --- !u!1 &705507993
 GameObject:
@@ -2346,9 +2348,10 @@ MonoBehaviour:
   m_bullets: 10
   m_MaxBullets: 100
   m_ChargerBullets: 10
+  m_Points: 0
   m_Shield: 0
-  pointsText: {fileID: 400856639}
-  StartGaleryText: {fileID: 721211990}
+  isGaleryActive: 0
+  pointsActive: 0
 --- !u!143 &945301775
 CharacterController:
   m_ObjectHideFlags: 0

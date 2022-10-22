@@ -70,23 +70,20 @@ public class FPPlayerController : MonoBehaviour
     public float m_Health; //el profe el te com life
     public float m_bullets = 10;
     public float m_MaxBullets = 100;
-    public float m_ChargerBullets = 10; 
-
+    public float m_ChargerBullets = 10;
+    public float m_Points; 
     public float m_Shield;
 
     bool isReloading;
     bool isRunning;
 
-    public GameObject pointsText;
+    public bool isGaleryActive = false;
+    public bool pointsActive = false; 
 
-    public GameObject StartGaleryText;
 
-    bool GaleryActiva = false;
 
-    float Points;  
-        
 
-    
+
     void Start()
     {
         m_Health = GameController.GetGameController().GetPlayerHealth();
@@ -261,8 +258,7 @@ public class FPPlayerController : MonoBehaviour
                     }
                     else if (l_RaycastHit.collider.tag == "ObjetivosGaleria")
                     {
-                        Points += 100;
-                        pointsText.GetComponent<TextMeshProUGUI>().text = "Points: " + Points;
+                        m_Points += 100;
                         l_RaycastHit.collider.GetComponent<GaleriaDeTiro1>().Timer();
                     }
                     else
@@ -349,21 +345,20 @@ public class FPPlayerController : MonoBehaviour
         }
         else if (other.tag == "GaleriaDeTiro")
         {
-            GaleryActiva = true;
-            StartGaleryText.SetActive(true);
+            isGaleryActive = true;
 
         }
     }
 
     void ShootingGalery()
     {
-        if(GaleryActiva)
+        if(isGaleryActive)
         {          
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StartGaleryText.SetActive(false);
-                pointsText.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {              
+                pointsActive = true;
+                
             }
         }
     }
