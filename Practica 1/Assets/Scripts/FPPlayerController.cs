@@ -355,10 +355,10 @@ public class FPPlayerController : MonoBehaviour
     void ShootingGalery()
     {
         if(isGaleryActive)
-        {          
+        {
 
             if (Input.GetKeyDown(KeyCode.E))
-            {              
+            {
                 pointsActive = true;
                 
             }

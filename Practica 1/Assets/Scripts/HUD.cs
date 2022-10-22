@@ -10,7 +10,7 @@ public class HUD : MonoBehaviour
     public GameObject textShield;
     public GameObject textAmmo;
     public GameObject textPoints;
-    public GameObject textGallery; 
+    public GameObject textGallery1;
 
     public FPPlayerController fppController;
     // Start is called before the first frame update
@@ -29,13 +29,13 @@ public class HUD : MonoBehaviour
 
         if (fppController.isGaleryActive)
         {
-            textGallery.SetActive(true);
-            textPoints.GetComponent<TextMeshProUGUI>().text = "POINTS: " + fppController.m_Points;
+            textGallery1.SetActive(true);
         }
 
         if (fppController.pointsActive)
-        {
-            textGallery.SetActive(false);
+        {          
+            textGallery1.SetActive(false);
+
             textPoints.SetActive(true);
             textPoints.GetComponent<TextMeshProUGUI>().text = "POINTS: " + fppController.m_Points;
         }
