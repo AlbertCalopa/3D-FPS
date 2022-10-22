@@ -78,7 +78,9 @@ public class FPPlayerController : MonoBehaviour
     bool isRunning;
 
     public bool isGaleryActive = false;
-    public bool pointsActive = false; 
+    public bool pointsActive = false;
+
+    public GameObject GalleyTrigger; 
 
 
 
@@ -345,6 +347,7 @@ public class FPPlayerController : MonoBehaviour
         }
         else if (other.tag == "GaleriaDeTiro")
         {
+            GalleyTrigger.SetActive(false);
             isGaleryActive = true;
 
         }
