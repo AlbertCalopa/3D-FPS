@@ -256,9 +256,20 @@ public class DronEnemy2 : MonoBehaviour
 
     void Die()
     {
-        this.gameObject.SetActive(false);        
-       
-        Instantiate(LifeItemPrefab, this.transform.position, this.transform.rotation);
+        float fadeSpeed = 1.0f;
+        Color objectColor = Dron.GetComponent<MeshRenderer>().material.color;
+        float fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
+
+        objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+        Dron.GetComponent<MeshRenderer>().material.color = objectColor;
+        //this.gameObject.SetActive(false);
+        if(fadeAmount <= 0)
+        {
+            this.gameObject.SetActive(false);
+            Instantiate(LifeItemPrefab, this.transform.position, this.transform.rotation);
+        }
+        Debug.Log(fadeAmount);
+        //Instantiate(LifeItemPrefab, this.transform.position, this.transform.rotation);
         
 
 
