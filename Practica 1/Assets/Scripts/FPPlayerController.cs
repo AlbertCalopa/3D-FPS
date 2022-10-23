@@ -328,6 +328,11 @@ public class FPPlayerController : MonoBehaviour
         m_Health = Mathf.Clamp(m_Health + Life, 0.0f, 1.0f);
         //Debug.Log(m_Health);
     }
+
+    public void RemoveLife(float Life)
+    {
+        m_Health = Mathf.Clamp(m_Health - Life, 0.0f, 1.0f);
+    }
     
     public float getShield()
     {

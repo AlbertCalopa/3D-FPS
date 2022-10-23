@@ -2921,6 +2921,8 @@ MonoBehaviour:
   m_LifeBarAnchorPosition: {fileID: 1814610091}
   m_LifeBarRectTransform: {fileID: 1361602106}
   LifeItemPrefab: {fileID: 8807922132674378839, guid: a7e3a0baa524b294a9d255b048fcc213, type: 3}
+  Player: {fileID: 945301774}
+  dronDamage: 0.3
 --- !u!1 &2035686233
 GameObject:
   m_ObjectHideFlags: 0

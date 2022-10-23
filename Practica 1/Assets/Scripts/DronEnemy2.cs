@@ -40,6 +40,14 @@ public class DronEnemy2 : MonoBehaviour
 
     public GameObject LifeItemPrefab;
 
+    public FPPlayerController Player;
+
+    public float dronDamage;
+
+    float timerAttack = 1.5f;
+
+    Vector3 PlayerPos = GameController.GetGameController().GetPlayer().transform.position;
+
     public TState State
     {
         get { return _State; }
@@ -109,6 +117,7 @@ public class DronEnemy2 : MonoBehaviour
                 UpdateChaseState();
                 break;
             case TState.ATTACK:
+                UpdateAttackState();
                 break;
             case TState.HIT:
                 break;
@@ -208,6 +217,22 @@ public class DronEnemy2 : MonoBehaviour
             State = TState.ATTACK;
         }
         if (Vector3.Distance(PlayerPos, this.transform.position) > 6.0f)
+        {
+            State = TState.PATROL;
+        }
+    }
+
+    void UpdateAttackState()
+    {
+        
+        timerAttack -= Time.deltaTime;
+        if (timerAttack <= 0)
+        {
+            Player.RemoveLife(dronDamage);
+            timerAttack = 3.0f;
+        }
+        Debug.Log(timerAttack);
+        if(Vector3.Distance(PlayerPos, this.transform.position) > 6.0f)
         {
             State = TState.PATROL;
         }
