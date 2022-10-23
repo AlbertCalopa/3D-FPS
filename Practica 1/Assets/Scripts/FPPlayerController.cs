@@ -332,13 +332,17 @@ public class FPPlayerController : MonoBehaviour
 
     public void DamagePlayer(float Damage)
     {
-        m_Health = Mathf.Clamp(m_Health - Damage * 0.25f, 0.0f, 1.0f);
-        m_Shield = Mathf.Clamp(m_Shield - Damage * 0.75f, 0.0f, 1.0f);
+        
+        m_Shield = m_Shield - Damage * 0.75f;
 
-        if(m_Shield <= 0)
+        if(m_Shield < 0)
         {
-            m_Health = Mathf.Clamp(m_Health - Damage, 0.0f, 1.0f);
+            float negShield = 0 - m_Shield;
+            m_Health = Mathf.Clamp(m_Health - negShield, 0.0f, 1.0f);
+            m_Shield = 0.0f;
         }
+        m_Health = Mathf.Clamp(m_Health - Damage * 0.25f, 0.0f, 1.0f);
+
     }
     
     public float getShield()

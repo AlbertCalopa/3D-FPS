@@ -1464,7 +1464,6 @@ MonoBehaviour:
   m_ShootAnimationClip: {fileID: 7400000, guid: de8bb571a63fd22428124e7e1f7a1559, type: 2}
   m_ReloadAnimationClip: {fileID: 7400000, guid: 913b6a3ff690b194eb047b999bca5ec8, type: 2}
   m_RunAnimationClip: {fileID: 7400000, guid: f55beda9514a66a4097322cb36b3bd58, type: 2}
-  m_GalleryAnimationClip: {fileID: 0}
   m_Health: 0.5
   m_bullets: 10
   m_MaxBullets: 100

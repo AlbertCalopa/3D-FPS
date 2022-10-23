@@ -238,7 +238,7 @@ public class DronEnemy2 : MonoBehaviour
         if (Vector3.Distance(Player.transform.position, Dron.transform.position) > 7.0f)
         {
             NavMeshAgent.isStopped = false;
-            State = TState.PATROL;
+            State = TState.CHASE;
         }
     }
 
