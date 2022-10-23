@@ -61,7 +61,6 @@ public class FPPlayerController : MonoBehaviour
     public AnimationClip m_ShootAnimationClip;
     public AnimationClip m_ReloadAnimationClip;
     public AnimationClip m_RunAnimationClip;
-    public AnimationClip m_GalleryAnimationClip; 
 
     bool m_Shooting = false;
 
@@ -142,9 +141,9 @@ public class FPPlayerController : MonoBehaviour
 
 
 
-            //Debug.Log("Health: " + m_Health);
+        //Debug.Log("Health: " + m_Health);
 
-            float l_FOV = m_NormalMovementFOV;
+        float l_FOV = m_NormalMovementFOV;
 
         m_TimeOfGround += Time.deltaTime;
         Vector3 l_RightDirection = transform.right;
@@ -383,7 +382,6 @@ public class FPPlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                  
-                m_Animation.clip = m_GalleryAnimationClip;
 
                 Gallery.SetActive(true);
                 m_Animation.Play(); 
