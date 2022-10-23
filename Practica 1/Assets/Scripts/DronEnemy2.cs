@@ -228,7 +228,7 @@ public class DronEnemy2 : MonoBehaviour
         timerAttack -= Time.deltaTime;
         if (timerAttack <= 0)
         {
-            Player.RemoveLife(dronDamage);
+            Player.DamagePlayer(dronDamage);
             timerAttack = 3.0f;
         }
         Debug.Log(timerAttack);

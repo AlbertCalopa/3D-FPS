@@ -329,9 +329,15 @@ public class FPPlayerController : MonoBehaviour
         //Debug.Log(m_Health);
     }
 
-    public void RemoveLife(float Life)
+    public void DamagePlayer(float Damage)
     {
-        m_Health = Mathf.Clamp(m_Health - Life, 0.0f, 1.0f);
+        m_Health = Mathf.Clamp(m_Health - Damage * 0.25f, 0.0f, 1.0f);
+        m_Shield = Mathf.Clamp(m_Shield - Damage * 0.75f, 0.0f, 1.0f);
+
+        if(m_Shield <= 0)
+        {
+            m_Health = Mathf.Clamp(m_Health - Damage, 0.0f, 1.0f);
+        }
     }
     
     public float getShield()
