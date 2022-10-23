@@ -140,9 +140,11 @@ public class FPPlayerController : MonoBehaviour
         UpdateInputDebug();
         ShootingGalery();
 
-        //Debug.Log("Health: " + m_Health);
 
-        float l_FOV = m_NormalMovementFOV;
+
+            //Debug.Log("Health: " + m_Health);
+
+            float l_FOV = m_NormalMovementFOV;
 
         m_TimeOfGround += Time.deltaTime;
         Vector3 l_RightDirection = transform.right;
@@ -357,13 +359,14 @@ public class FPPlayerController : MonoBehaviour
         else if (other.tag == "GaleriaDeTiro")
         {
             isGaleryActive = true;
+            
         }
         else if (other.tag == "NoGaleriaDeTiro")
         {
             m_Points = 0;
             isGaleryActive = false;
             Gallery.SetActive(false);            
-            pointsActive = false;          
+            pointsActive = false;
         }
     }
 
@@ -371,9 +374,9 @@ public class FPPlayerController : MonoBehaviour
     {
         if(isGaleryActive)
         {
-
             if (Input.GetKeyDown(KeyCode.E))
             {
+                 
                 m_Animation.clip = m_GalleryAnimationClip;
 
                 Gallery.SetActive(true);
