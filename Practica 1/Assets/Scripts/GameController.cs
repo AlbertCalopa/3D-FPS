@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
     }
     public void SetPlayerHealth(float PlayerHealth)
     {
-        m_PlayerHealth = PlayerHealth;
+        m_PlayerHealth = m_Player.getLife();
     }
     public float GetPlayerHealth()
     {
@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     }
     public void SetPlayerShield(float PlayerShield)
     {
-        m_PlayerShield = PlayerShield;
+        m_PlayerShield = m_Player.getShield();
     }
     public float GetPlayerShield()
     {

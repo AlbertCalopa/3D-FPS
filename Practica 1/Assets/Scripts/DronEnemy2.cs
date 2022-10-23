@@ -48,6 +48,10 @@ public class DronEnemy2 : MonoBehaviour
 
     Vector3 PlayerPos = GameController.GetGameController().GetPlayer().transform.position;
 
+    
+
+    public GameObject Dron;
+
     public TState State
     {
         get { return _State; }
@@ -209,14 +213,14 @@ public class DronEnemy2 : MonoBehaviour
 
     void UpdateChaseState()
     {
-        Vector3 PlayerPos = GameController.GetGameController().GetPlayer().transform.position;
+        
         NavMeshAgent.SetDestination(PlayerPos);
-        if(Vector3.Distance(PlayerPos, this.transform.position) < 3.0f)
+        if(Vector3.Distance(Player.transform.position, Dron.transform.position) < 3.0f)
         {
             NavMeshAgent.isStopped = true;
             State = TState.ATTACK;
         }
-        if (Vector3.Distance(PlayerPos, this.transform.position) > 6.0f)
+        if (Vector3.Distance(Player.transform.position, Dron.transform.position) > 6.0f)
         {
             State = TState.PATROL;
         }
@@ -225,15 +229,15 @@ public class DronEnemy2 : MonoBehaviour
     void UpdateAttackState()
     {
         
-        timerAttack -= Time.deltaTime;
+        timerAttack -= Time.deltaTime;        
         if (timerAttack <= 0)
         {
             Player.DamagePlayer(dronDamage);
-            timerAttack = 3.0f;
-        }
-        Debug.Log(timerAttack);
-        if(Vector3.Distance(PlayerPos, this.transform.position) > 6.0f)
+            timerAttack = 1.5f;
+        }        
+        if (Vector3.Distance(Player.transform.position, Dron.transform.position) > 7.0f)
         {
+            NavMeshAgent.isStopped = false;
             State = TState.PATROL;
         }
     }
