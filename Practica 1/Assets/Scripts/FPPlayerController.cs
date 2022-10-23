@@ -82,7 +82,9 @@ public class FPPlayerController : MonoBehaviour
 
 
     public GameObject GalleyTrigger;
-    public GameObject Gallery; 
+    public GameObject Gallery;
+    public GameObject Bridge; 
+
 
 
 
@@ -242,8 +244,13 @@ public class FPPlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && CanShoot())
         {
             Shoot();
-        }        
-        
+        }
+
+        if (m_Points > 600) 
+        {
+            Bridge.SetActive(true); 
+        }
+
 
         bool CanShoot()
         {

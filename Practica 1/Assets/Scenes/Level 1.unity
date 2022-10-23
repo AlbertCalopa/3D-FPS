@@ -2692,6 +2692,7 @@ MonoBehaviour:
   pointsActive: 0
   GalleyTrigger: {fileID: 36152376}
   Gallery: {fileID: 1265505066}
+  Bridge: {fileID: 1203463097}
 --- !u!143 &945301775
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5701,11 +5702,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6136586466438573205, guid: 4cad48297c12dba47aa60987ef62bcbf, type: 3}
       propertyPath: m_Name
-      value: swamp-bridge-4k-ready_2016
+      value: Bridge
       objectReference: {fileID: 0}
     - target: {fileID: 6136586466438573205, guid: 4cad48297c12dba47aa60987ef62bcbf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6136586466438803637, guid: 4cad48297c12dba47aa60987ef62bcbf, type: 3}
       propertyPath: m_RootOrder
