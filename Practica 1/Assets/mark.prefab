@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019afb32c51fdf42bc1ff026e97cb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimerGallery: 2
+  fppController: {fileID: 0}
 --- !u!1 &3550534666158034334
 GameObject:
   m_ObjectHideFlags: 0

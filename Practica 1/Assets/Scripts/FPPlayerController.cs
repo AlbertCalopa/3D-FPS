@@ -83,11 +83,12 @@ public class FPPlayerController : MonoBehaviour
 
     public GameObject GalleyTrigger;
     public GameObject Gallery;
-    public GameObject Bridge; 
+    public GameObject Bridge;
 
 
 
-
+    [SerializeField]
+    List<GameObject> Llista;
 
 
 
@@ -398,6 +399,12 @@ public class FPPlayerController : MonoBehaviour
                 m_Animation.Play(); 
                 pointsActive = true;
                 
+                foreach (GameObject g in Llista)
+                {
+                    g.GetComponent<MeshCollider>().enabled = true;
+                    g.GetComponent<Renderer>().enabled = true;
+                }
+                    
             }
         }
     }
