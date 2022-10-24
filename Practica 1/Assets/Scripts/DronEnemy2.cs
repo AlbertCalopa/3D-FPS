@@ -54,6 +54,8 @@ public class DronEnemy2 : MonoBehaviour
 
     public Light light;
 
+    
+
     public TState State
     {
         get { return _State; }
@@ -236,6 +238,7 @@ public class DronEnemy2 : MonoBehaviour
         timerAttack -= Time.deltaTime;        
         if (timerAttack <= 0)
         {
+            
             Player.DamagePlayer(dronDamage);
             timerAttack = 1.5f;
         }        
