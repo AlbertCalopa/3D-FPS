@@ -91,6 +91,9 @@ public class FPPlayerController : MonoBehaviour
     List<GameObject> Llista;
 
 
+    public ParticleSystem shootParticle;
+
+
 
     void Start()
     {
@@ -284,6 +287,7 @@ public class FPPlayerController : MonoBehaviour
                 }
                 SetShootWeaponAnimation();
                 m_Shooting = true;
+                shootParticle.Play();
             }
             
 
