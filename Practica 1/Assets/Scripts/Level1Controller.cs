@@ -24,6 +24,7 @@ public class Level1Controller : MonoBehaviour
         {
             GameController.GetGameController().SetPlayerHealth(Controller.GetPlayerHealth());
             GameController.GetGameController().SetPlayerShield(Controller.GetPlayerShield());
+            GameController.GetGameController().SetMaxBullets(Controller.GetMaxBullets());
             SceneManager.LoadScene("Level 2");
         }
     }

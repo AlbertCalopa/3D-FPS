@@ -96,7 +96,7 @@ public class FPPlayerController : MonoBehaviour
     {
         m_Health = GameController.GetGameController().GetPlayerHealth();
         m_Shield = GameController.GetGameController().GetPlayerShield();
-        m_Shield = GameController.GetGameController().GetPlayerShield();
+        m_MaxBullets = GameController.GetGameController().GetMaxBullets();
         GameController.GetGameController().SetPlayer(this);
         Debug.Log("Health: " + m_Health);
         m_Yaw = transform.rotation.y;
@@ -337,6 +337,16 @@ public class FPPlayerController : MonoBehaviour
     {
         m_Health = Mathf.Clamp(m_Health + Life, 0.0f, 1.0f);
         //Debug.Log(m_Health);
+    }
+
+    public float getBullets()
+    {
+        return m_MaxBullets;
+    }
+
+    public void AddBullets(float Bullets)
+    {
+        m_MaxBullets = Mathf.Clamp(m_MaxBullets + Bullets, 0.0f, 100.0f);
     }
 
     public void DamagePlayer(float Damage)

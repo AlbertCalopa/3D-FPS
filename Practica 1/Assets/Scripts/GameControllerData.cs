@@ -5,4 +5,5 @@ public class GameControllerData : ScriptableObject
 {
     public float m_Lifes;
     public float m_Shield;
+    public float m_MaxBullets;
 }

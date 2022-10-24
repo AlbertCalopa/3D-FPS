@@ -4,6 +4,7 @@ public class GameController : MonoBehaviour
     static GameController m_GameController = null;
     float m_PlayerHealth = 1.0f;
     float m_PlayerShield = 1.0f;
+    float maxBullets = 100.0f;
     FPPlayerController m_Player;
     private void Start()
     {
@@ -17,6 +18,7 @@ public class GameController : MonoBehaviour
             GameControllerData l_GameControllerData = Resources.Load<GameControllerData>("Data");
             m_GameController.m_PlayerHealth = l_GameControllerData.m_Lifes;
             m_GameController.m_PlayerShield = l_GameControllerData.m_Shield;
+            m_GameController.maxBullets = l_GameControllerData.m_MaxBullets;
             Debug.Log("Data loaded with file" + m_GameController.m_PlayerHealth);
         }
         return m_GameController;
@@ -36,6 +38,16 @@ public class GameController : MonoBehaviour
     public float GetPlayerHealth()
     {
         return m_PlayerHealth;
+    }
+
+    public void SetMaxBullets(float Bullets)
+    {
+        maxBullets = m_Player.m_MaxBullets;
+    }
+
+    public float GetMaxBullets()
+    {
+        return maxBullets;
     }
     public void SetPlayerShield(float PlayerShield)
     {
