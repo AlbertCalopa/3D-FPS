@@ -17,4 +17,14 @@ public class Level1Controller : MonoBehaviour
             SceneManager.LoadScene("Level 2");
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            GameController.GetGameController().SetPlayerHealth(Controller.GetPlayerHealth());
+            GameController.GetGameController().SetPlayerShield(Controller.GetPlayerShield());
+            SceneManager.LoadScene("Level 2");
+        }
+    }
 }
