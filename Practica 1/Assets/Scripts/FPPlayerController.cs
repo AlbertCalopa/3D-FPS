@@ -115,27 +115,7 @@ public class FPPlayerController : MonoBehaviour
         m_DecalsPool = new TCObjectPool(10, m_DecalPrefab);
 
     }
-#if UNITY_EDITOR
-    void UpdateInputDebug()
-    {
-        if (Input.GetKeyDown(m_DebugLockAngleCode))
-        {
-            m_AngleLocked = !m_AngleLocked;
-        }
-        if (Input.GetKeyDown(m_DebugLockKeyCode))
-        {
-            if (Cursor.lockState == CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                m_AimLocked = Cursor.lockState == CursorLockMode.Locked;
-            }
-        }
-    }
-#endif
+
 
     void Update()
     {
@@ -250,6 +230,27 @@ public class FPPlayerController : MonoBehaviour
         if (m_Points > 600) 
         {
             Bridge.SetActive(true); 
+        }
+
+
+        void UpdateInputDebug()
+        {
+            if (Input.GetKeyDown(m_DebugLockAngleCode))
+            {
+                m_AngleLocked = !m_AngleLocked;
+            }
+            if (Input.GetKeyDown(m_DebugLockKeyCode))
+            {
+                if (Cursor.lockState == CursorLockMode.Locked)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    m_AimLocked = Cursor.lockState == CursorLockMode.Locked;
+                }
+            }
         }
 
 
