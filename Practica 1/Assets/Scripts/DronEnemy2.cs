@@ -52,6 +52,8 @@ public class DronEnemy2 : MonoBehaviour
 
     public GameObject Dron;
 
+    public Light light;
+
     public TState State
     {
         get { return _State; }
@@ -213,8 +215,9 @@ public class DronEnemy2 : MonoBehaviour
 
     void UpdateChaseState()
     {
-        
+        light.gameObject.SetActive(true);
         NavMeshAgent.SetDestination(PlayerPos);
+
         if(Vector3.Distance(Player.transform.position, Dron.transform.position) < 3.0f)
         {
             NavMeshAgent.isStopped = true;
@@ -222,6 +225,7 @@ public class DronEnemy2 : MonoBehaviour
         }
         if (Vector3.Distance(Player.transform.position, Dron.transform.position) > 6.0f)
         {
+            light.gameObject.SetActive(false);
             State = TState.PATROL;
         }
     }
