@@ -432,7 +432,7 @@ public class FPPlayerController : MonoBehaviour
     }
     public void RestartGame() 
     {
-        m_Health = 1;
+        m_Health = 0.5f;
         m_Shield = 0.5f;
         m_Points = 0;
         m_bullets = 10;
