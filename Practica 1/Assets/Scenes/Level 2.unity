@@ -11524,7 +11524,6 @@ GameObject:
   m_Component:
   - component: {fileID: 965571168}
   - component: {fileID: 965571170}
-  - component: {fileID: 965571169}
   m_Layer: 6
   m_Name: WeaponCamera
   m_TagString: Untagged
@@ -11546,14 +11545,6 @@ Transform:
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &965571169
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965571167}
-  m_Enabled: 1
 --- !u!20 &965571170
 Camera:
   m_ObjectHideFlags: 0
