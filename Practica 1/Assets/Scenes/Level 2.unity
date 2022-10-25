@@ -32213,6 +32213,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5436415259455112928, guid: 9d6963dd3e72bb244947027f389d3a4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436415259878112839, guid: 9d6963dd3e72bb244947027f389d3a4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436415260148165761, guid: 9d6963dd3e72bb244947027f389d3a4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436415260647577518, guid: 9d6963dd3e72bb244947027f389d3a4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5436415260663239633, guid: 9d6963dd3e72bb244947027f389d3a4c,
         type: 3}
       propertyPath: m_HitDamageScreeen
@@ -32277,6 +32297,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436415260663239635, guid: 9d6963dd3e72bb244947027f389d3a4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436415260884404803, guid: 9d6963dd3e72bb244947027f389d3a4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436415261317990065, guid: 9d6963dd3e72bb244947027f389d3a4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d6963dd3e72bb244947027f389d3a4c, type: 3}
@@ -36211,6 +36246,9 @@ MonoBehaviour:
   - {fileID: 1306655525}
   HearRangeDistance: 6
   SightDistance: 40
+  DronSightLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
   _State: 0
   m_LifeBarImage: {fileID: 1594446706}
   m_LifeBarAnchorPosition: {fileID: 1814610091}

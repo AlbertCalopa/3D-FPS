@@ -28,8 +28,10 @@ public class DronEnemy2 : MonoBehaviour
     float EyesHeight = 0.0f;
     float EyesPlayerHeight = 1.8f;
     float RotateTimer = 0.0f;
-
+    
     LayerMask SightLayerMask;
+    [SerializeField]
+    LayerMask DronSightLayerMask;
     [SerializeField]
     TState _State;
 
@@ -138,8 +140,8 @@ public class DronEnemy2 : MonoBehaviour
         Vector3 l_PlayerEyesPosition = l_PlayerPosition + Vector3.up * EyesPlayerHeight;
         Debug.DrawLine(l_EyesPosition, l_PlayerEyesPosition, SeesPlayer() ? Color.red : Color.blue);
         Debug.DrawLine(l_PlayerEyesPosition, l_EyesPosition, SeesDron() ? Color.black : Color.yellow);
-        
-        if(State == TState.PATROL)
+
+        /*if(State == TState.PATROL)
         {
             m_LifeBarRectTransform.gameObject.SetActive(false);
             
@@ -147,14 +149,16 @@ public class DronEnemy2 : MonoBehaviour
         else
         {
             UpdateLifeBarPosition();
-        }
+        }*/
+
+        
         
 
     }
 
     private void LateUpdate()
     {
-        //UpdateLifeBarPosition();
+        UpdateLifeBarPosition();
     }
     void SetIdleState()
     {
@@ -220,7 +224,7 @@ public class DronEnemy2 : MonoBehaviour
         Ray l_Ray = new Ray(l_EyesPosition, l_Direction);
 
         return Vector3.Distance(l_DronPosition, Player.transform.position) < SightDistance && Vector3.Dot(l_ForwardXZ, l_DirectionToDronXZ) > Mathf.Cos(VisualConeAngle * Mathf.Deg2Rad / 2.0f) &&
-            !Physics.Raycast(l_Ray, l_Lenght, SightLayerMask.value);
+            !Physics.Raycast(l_Ray, l_Lenght, DronSightLayerMask.value);
     }
 
     bool PatrolTargetPositionArrived()
@@ -324,9 +328,16 @@ public class DronEnemy2 : MonoBehaviour
 
     void UpdateLifeBarPosition()
     {
-        Vector3 l_position = GameController.GetGameController().GetPlayer().m_Camera.WorldToViewportPoint(m_LifeBarAnchorPosition.position);
-        m_LifeBarRectTransform.anchoredPosition = new Vector3(l_position.x * 1920.0f, -(1080.0f - l_position.y * 1080.0f), 0.0f);
-        m_LifeBarRectTransform.gameObject.SetActive(l_position.z > 0.0f);
+        if (SeesDron())
+        {
+            Vector3 l_position = GameController.GetGameController().GetPlayer().m_Camera.WorldToViewportPoint(m_LifeBarAnchorPosition.position);
+            m_LifeBarRectTransform.anchoredPosition = new Vector3(l_position.x * 1920.0f, -(1080.0f - l_position.y * 1080.0f), 0.0f);
+            m_LifeBarRectTransform.gameObject.SetActive(l_position.z > 0.0f);
+        }
+        else
+        {
+            m_LifeBarRectTransform.gameObject.SetActive(false);
+        }
     }
 
 

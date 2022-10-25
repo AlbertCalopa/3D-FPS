@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - DroneCollider
+  - Item
+  - DeadZone
+  - GaleriaDeTiro
+  - NoGaleriaDeTiro
+  - ObjetivosGaleria
   layers:
   - Default
   - TransparentFX
@@ -13,7 +19,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Player
   - Lighting
   - Ground
   - Postprocessing
