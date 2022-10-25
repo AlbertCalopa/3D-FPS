@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FPPlayerController : MonoBehaviour
 {
@@ -86,6 +87,7 @@ public class FPPlayerController : MonoBehaviour
     public GameObject GalleyTrigger;
     public GameObject Gallery;
     public GameObject Bridge;
+    public GameObject m_HitDamageScreeen;
 
 
 
@@ -94,6 +96,8 @@ public class FPPlayerController : MonoBehaviour
 
 
     public ParticleSystem shootParticle;
+
+    
 
 
 
@@ -132,6 +136,18 @@ public class FPPlayerController : MonoBehaviour
             Die();
         }
 
+        if (m_HitDamageScreeen != null)
+        {
+            if (m_HitDamageScreeen.GetComponent<Image>().color.a > 0) 
+            {
+                var color = m_HitDamageScreeen.GetComponent<Image>().color;
+
+                color.a -= 0.01f;
+
+                m_HitDamageScreeen.GetComponent<Image>().color = color;
+            }
+            
+        }
 
         //Debug.Log("Health: " + m_Health);
 
@@ -363,6 +379,10 @@ public class FPPlayerController : MonoBehaviour
     {
         
         m_Shield = m_Shield - Damage * 0.75f;
+        var color = m_HitDamageScreeen.GetComponent<Image>().color;
+        color.a = 0.8f;
+
+        m_HitDamageScreeen.GetComponent<Image>().color = color;
 
         if(m_Shield < 0)
         {
