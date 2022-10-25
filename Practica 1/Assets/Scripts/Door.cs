@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     float timerText = 2.5f;
     bool timerActivate = false;
     bool unlocked = false;
+    public ParticleSystem particulas;
     
     // Start is called before the first frame update
     void Start()
@@ -35,30 +36,26 @@ public class Door : MonoBehaviour
         }
         if (unlocked)
         {
-            Fade();
+            Fade();            
         }
 
         Debug.Log(key.hasKey);
     }
     void Fade()
     {
+        particulas.Play();
         float fadeSpeed = 0.4f;
         Color objectColor = this.GetComponent<MeshRenderer>().material.color;
         float fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
 
         objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
         this.GetComponent<MeshRenderer>().material.color = objectColor;
-        //this.gameObject.SetActive(false);
+        
         if (fadeAmount <= 0)
         {
             this.gameObject.SetActive(false);
             
-        }
-        
-        //Instantiate(LifeItemPrefab, this.transform.position, this.transform.rotation);
-
-
-
+        }                  
     }
 
     private void OnTriggerEnter(Collider other)
