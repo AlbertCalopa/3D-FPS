@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class FPPlayerController : MonoBehaviour
 {
 
@@ -125,6 +127,10 @@ public class FPPlayerController : MonoBehaviour
         UpdateInputDebug();
         ShootingGalery();
 
+        if(m_Health <= 0)
+        {
+            Die();
+        }
 
 
         //Debug.Log("Health: " + m_Health);
@@ -386,7 +392,7 @@ public class FPPlayerController : MonoBehaviour
         }
         else if (other.tag == "DeadZone")
         {
-            Kill();
+            Die();
         }
         else if (other.tag == "GaleriaDeTiro")
         {
@@ -428,7 +434,7 @@ public class FPPlayerController : MonoBehaviour
 
 
 
-    void Kill()
+    void Die()
     {
         m_Health = 0.0f;
         GameController.GetGameController().RestartGame();
@@ -448,6 +454,7 @@ public class FPPlayerController : MonoBehaviour
         Gallery.SetActive(false);
         isGaleryActive = false;
         pointsActive = false;
+        SceneManager.LoadScene("GameOver");
 
 
 
