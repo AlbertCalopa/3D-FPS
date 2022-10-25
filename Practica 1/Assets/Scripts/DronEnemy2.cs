@@ -218,7 +218,7 @@ public class DronEnemy2 : MonoBehaviour
     void UpdateChaseState()
     {
         light.gameObject.SetActive(true);
-        NavMeshAgent.SetDestination(PlayerPos);
+        NavMeshAgent.SetDestination(Player.transform.position);
 
         if(Vector3.Distance(Player.transform.position, Dron.transform.position) < 3.0f)
         {
@@ -259,6 +259,7 @@ public class DronEnemy2 : MonoBehaviour
         }
         Debug.Log("Hit there" + Life);
         Debug.Log(m_Life);
+        State = TState.ALERT;
     }
 
     void Die()
