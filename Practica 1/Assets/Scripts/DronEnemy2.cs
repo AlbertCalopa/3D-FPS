@@ -46,7 +46,7 @@ public class DronEnemy2 : MonoBehaviour
 
     float timerAttack = 1.5f;
 
-    Vector3 PlayerPos = GameController.GetGameController().GetPlayer().transform.position;
+    
 
     
 

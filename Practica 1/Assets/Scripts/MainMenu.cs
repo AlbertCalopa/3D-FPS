@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     Level1Controller level;
     private void Start()
     {
-        GameController.DestroySingleton();
+        //GameController.DestroySingleton();
         Cursor.lockState = CursorLockMode.None;
         
         
