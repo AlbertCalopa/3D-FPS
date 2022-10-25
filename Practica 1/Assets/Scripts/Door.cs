@@ -7,13 +7,14 @@ public class Door : MonoBehaviour
 {
     public Key key;
     public GameObject text;
-    float timerText = 3.0f;
+    float timerText = 2.5f;
     bool timerActivate = false;
+    bool unlocked = false;
     
     // Start is called before the first frame update
     void Start()
     {
-       
+        timerText = 2.5f;
     }
 
     // Update is called once per frame
@@ -25,11 +26,38 @@ public class Door : MonoBehaviour
             Debug.Log(timerText);
             if (timerText < 0)
             {
+                timerText = 2.5f;
                 text.GetComponent<TextMeshProUGUI>().text = "";
-                timerText = 3.0f;
+                
                 timerActivate = false;
             }
+            
         }
+        if (unlocked)
+        {
+            Fade();
+        }
+
+        Debug.Log(key.hasKey);
+    }
+    void Fade()
+    {
+        float fadeSpeed = 0.4f;
+        Color objectColor = this.GetComponent<MeshRenderer>().material.color;
+        float fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
+
+        objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+        this.GetComponent<MeshRenderer>().material.color = objectColor;
+        //this.gameObject.SetActive(false);
+        if (fadeAmount <= 0)
+        {
+            this.gameObject.SetActive(false);
+            
+        }
+        
+        //Instantiate(LifeItemPrefab, this.transform.position, this.transform.rotation);
+
+
 
     }
 
@@ -43,7 +71,8 @@ public class Door : MonoBehaviour
                 if (timerText > 0)
                 {
                     text.GetComponent<TextMeshProUGUI>().text = "Muy bien! Ahora puedes ir a ver mi verdadero yo";
-                    this.gameObject.SetActive(false);
+                    unlocked = true;
+                    //this.gameObject.SetActive(false);
                 }
                 
 

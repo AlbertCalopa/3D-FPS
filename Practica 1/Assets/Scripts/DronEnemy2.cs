@@ -179,7 +179,7 @@ public class DronEnemy2 : MonoBehaviour
     }
     bool HearsPlayer()
     {
-        Vector3 l_PlayerPosition = GameController.GetGameController().GetPlayer().transform.position;
+        Vector3 l_PlayerPosition = Player.transform.position;
         return Vector3.Distance(l_PlayerPosition, transform.position) <= HearRangeDistance;
     }
 
