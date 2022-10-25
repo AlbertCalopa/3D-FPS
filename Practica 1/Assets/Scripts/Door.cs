@@ -6,6 +6,7 @@ using TMPro;
 public class Door : MonoBehaviour
 {
     public Key key;
+    public WrongKey wrongKey;
     public GameObject text;
     float timerText = 2.5f;
     bool timerActivate = false;
@@ -67,20 +68,30 @@ public class Door : MonoBehaviour
                 timerActivate = true;
                 if (timerText > 0)
                 {
-                    text.GetComponent<TextMeshProUGUI>().text = "Muy bien! Ahora puedes ir a ver mi verdadero yo";
+                    text.GetComponent<TextMeshProUGUI>().text = "Muy bien! Ahora puedes ir a ver mi verdadero yo.";
                     unlocked = true;
                     //this.gameObject.SetActive(false);
                 }
                 
 
-            }
-            else
+            }           
+
+            else if (wrongKey.hasWrongKey)
             {
-                
+                timerActivate = true;
                 if (timerText > 0)
                 {
-                    text.GetComponent<TextMeshProUGUI>().text = "Alto! Necesito la llave más roñosa que puedas encontrar";
-                    
+                    text.GetComponent<TextMeshProUGUI>().text = "Está no es la llave que había pedido.";                
+                }
+            }
+
+            else
+            {
+
+                if (timerText > 0)
+                {
+                    text.GetComponent<TextMeshProUGUI>().text = "Alto! Necesito la llave más roñosa que puedas encontrar.";
+
                 }
                 timerActivate = true;
             }
