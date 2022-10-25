@@ -1157,6 +1157,12 @@ PrefabInstance:
       objectReference: {fileID: 1596907450}
     - target: {fileID: 678615870062342792, guid: c64d9863ab07a314687b3ec0cd2994bd,
         type: 3}
+      propertyPath: AmmoItemPrefab
+      value: 
+      objectReference: {fileID: 5524876258744173448, guid: f59233d787b81e644863481eba191f4a,
+        type: 3}
+    - target: {fileID: 678615870062342792, guid: c64d9863ab07a314687b3ec0cd2994bd,
+        type: 3}
       propertyPath: ShieldItemPrefab
       value: 
       objectReference: {fileID: 2421827189823790578, guid: 8575c86a4f7aa7f459b1ecae3481d371,
@@ -10970,6 +10976,12 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1596907450}
+    - target: {fileID: 678615870062342792, guid: c64d9863ab07a314687b3ec0cd2994bd,
+        type: 3}
+      propertyPath: AmmoItemPrefab
+      value: 
+      objectReference: {fileID: 5524876258744173448, guid: f59233d787b81e644863481eba191f4a,
+        type: 3}
     - target: {fileID: 678615870062342792, guid: c64d9863ab07a314687b3ec0cd2994bd,
         type: 3}
       propertyPath: ShieldItemPrefab
@@ -34654,6 +34666,12 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1596907450}
+    - target: {fileID: 678615870062342792, guid: c64d9863ab07a314687b3ec0cd2994bd,
+        type: 3}
+      propertyPath: AmmoItemPrefab
+      value: 
+      objectReference: {fileID: 5524876258744173448, guid: f59233d787b81e644863481eba191f4a,
+        type: 3}
     - target: {fileID: 678615870062342792, guid: c64d9863ab07a314687b3ec0cd2994bd,
         type: 3}
       propertyPath: ShieldItemPrefab
