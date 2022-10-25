@@ -462,6 +462,7 @@ public class FPPlayerController : MonoBehaviour
     }
     public void RestartGame() 
     {
+        SceneManager.LoadScene("GameOver");
         m_Health = 0.5f;
         m_Shield = 0.5f;
         m_Points = 0;
@@ -474,7 +475,7 @@ public class FPPlayerController : MonoBehaviour
         Gallery.SetActive(false);
         isGaleryActive = false;
         pointsActive = false;
-        SceneManager.LoadScene("GameOver");
+        
 
 
 
