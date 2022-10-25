@@ -262,11 +262,7 @@ public class DronEnemy2 : MonoBehaviour
         if(m_Life > 0) 
         {
             State = TState.ALERT;
-        }
-        else
-        {
-            State = TState.DIE;
-        }
+        }        
         
     }
 
