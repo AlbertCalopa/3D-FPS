@@ -302,6 +302,10 @@ public class FPPlayerController : MonoBehaviour
                         m_Points += 100;
                         l_RaycastHit.collider.GetComponent<GaleriaDeTiro1>().Timer();
                     }
+                    else if(l_RaycastHit.collider.tag == "Door")
+                    {
+
+                    }
                     else
                     {
                         CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
