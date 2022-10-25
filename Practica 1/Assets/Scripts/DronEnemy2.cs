@@ -41,6 +41,8 @@ public class DronEnemy2 : MonoBehaviour
     float m_Life = 1.0f;
 
     public GameObject LifeItemPrefab;
+    public GameObject ShieldItemPrefab;
+    public GameObject AmmoItemPrefab; 
 
     public FPPlayerController Player;
 
@@ -313,11 +315,27 @@ public class DronEnemy2 : MonoBehaviour
 
         objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
         Dron.GetComponent<MeshRenderer>().material.color = objectColor;
+
+        float item= Random.Range(0, 3); 
         //this.gameObject.SetActive(false);
-        if(fadeAmount <= 0)
+        if (fadeAmount <= 0)
         {
             this.gameObject.SetActive(false);
-            Instantiate(LifeItemPrefab, this.transform.position, this.transform.rotation);
+
+            if (item == 1)
+            {
+                Instantiate(LifeItemPrefab, this.transform.position, this.transform.rotation);
+            }
+            else if (item == 2)
+            {
+                Instantiate(ShieldItemPrefab, this.transform.position, this.transform.rotation); 
+            }
+            else
+            {
+                Instantiate(AmmoItemPrefab, this.transform.position, this.transform.rotation);
+            }
+
+            
         }
         Debug.Log(fadeAmount);
         //Instantiate(LifeItemPrefab, this.transform.position, this.transform.rotation);
