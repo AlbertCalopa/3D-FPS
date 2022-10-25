@@ -259,7 +259,15 @@ public class DronEnemy2 : MonoBehaviour
         }
         Debug.Log("Hit there" + Life);
         Debug.Log(m_Life);
-        State = TState.ALERT;
+        if(m_Life > 0) 
+        {
+            State = TState.ALERT;
+        }
+        else
+        {
+            State = TState.DIE;
+        }
+        
     }
 
     void Die()
