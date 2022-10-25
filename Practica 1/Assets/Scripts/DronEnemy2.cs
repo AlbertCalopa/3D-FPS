@@ -137,12 +137,24 @@ public class DronEnemy2 : MonoBehaviour
         Vector3 l_EyesPosition = transform.position + Vector3.up * EyesHeight;
         Vector3 l_PlayerEyesPosition = l_PlayerPosition + Vector3.up * EyesPlayerHeight;
         Debug.DrawLine(l_EyesPosition, l_PlayerEyesPosition, SeesPlayer() ? Color.red : Color.blue);
+        Debug.DrawLine(l_PlayerEyesPosition, l_EyesPosition, SeesDron() ? Color.black : Color.yellow);
         
+        if(State == TState.PATROL)
+        {
+            m_LifeBarRectTransform.gameObject.SetActive(false);
+            
+        }
+        else
+        {
+            UpdateLifeBarPosition();
+        }
+        
+
     }
 
     private void LateUpdate()
     {
-        UpdateLifeBarPosition();
+        //UpdateLifeBarPosition();
     }
     void SetIdleState()
     {
@@ -189,6 +201,28 @@ public class DronEnemy2 : MonoBehaviour
             !Physics.Raycast(l_Ray, l_Lenght, SightLayerMask.value);
     }
 
+    bool SeesDron()
+    {
+        Vector3 l_DronPosition = transform.position;
+        Vector3 l_DirectionToDronXZ =  l_DronPosition - Player.transform.position;
+        l_DirectionToDronXZ.y = 0.0f;
+        l_DirectionToDronXZ.Normalize();
+        Vector3 l_ForwardXZ = Player.transform.forward;
+        l_ForwardXZ.y = 0.0f;
+        l_ForwardXZ.Normalize();
+        Vector3 l_EyesPosition = Player.transform.position + Vector3.up * EyesHeight;
+        Vector3 l_DronEyesPosition = l_DronPosition + Vector3.up * EyesPlayerHeight;
+        Vector3 l_Direction = l_DronEyesPosition - l_EyesPosition;
+        float l_Lenght = l_Direction.magnitude;
+        l_Direction /= l_Lenght;
+
+
+        Ray l_Ray = new Ray(l_EyesPosition, l_Direction);
+
+        return Vector3.Distance(l_DronPosition, Player.transform.position) < SightDistance && Vector3.Dot(l_ForwardXZ, l_DirectionToDronXZ) > Mathf.Cos(VisualConeAngle * Mathf.Deg2Rad / 2.0f) &&
+            !Physics.Raycast(l_Ray, l_Lenght, SightLayerMask.value);
+    }
+
     bool PatrolTargetPositionArrived()
     {
         return !NavMeshAgent.hasPath && !NavMeshAgent.pathPending && NavMeshAgent.pathStatus == NavMeshPathStatus.PathComplete;
@@ -213,6 +247,7 @@ public class DronEnemy2 : MonoBehaviour
         {
             State = TState.CHASE;
         }
+        
     }
 
     void UpdateChaseState()
