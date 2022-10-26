@@ -68,7 +68,7 @@ public class Door : MonoBehaviour
                 timerActivate = true;
                 if (timerText > 0)
                 {
-                    text.GetComponent<TextMeshProUGUI>().text = "Muy bien! Ahora puedes ir a ver mi verdadero yo.";
+                    text.GetComponent<TextMeshProUGUI>().text = "Muy bien! Ahora puedes acceder a mi corazón.";
                     unlocked = true;
                     //this.gameObject.SetActive(false);
                 }
