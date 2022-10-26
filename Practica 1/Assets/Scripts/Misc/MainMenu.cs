@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField]
-    Level1Controller level;
+    
     private void Start()
     {
         //GameController.DestroySingleton();
@@ -15,14 +14,12 @@ public class MainMenu : MonoBehaviour
     }
     public void Restart()
     {
-        if (level.changeScene)
-        {
-            SceneManager.LoadScene("Level 2");
-        }
-        else
-        {
-            SceneManager.LoadScene("Level 1");
-        }
+        
+        
+          
+        
+          SceneManager.LoadScene("Level 1");
+        
         
     }
 
