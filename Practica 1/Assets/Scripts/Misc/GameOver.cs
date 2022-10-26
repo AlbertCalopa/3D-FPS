@@ -2,25 +2,17 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
     
     private void Start()
     {
         //GameController.DestroySingleton();
-        Cursor.lockState = CursorLockMode.None;
-        
-        
+        Cursor.lockState = CursorLockMode.None;        
     }
     public void Restart()
     {
-        
-        
-          
-        
-          SceneManager.LoadScene("Level 1");
-        
-        
+        SceneManager.LoadScene("Level 1");        
     }
 
     public void Exit()

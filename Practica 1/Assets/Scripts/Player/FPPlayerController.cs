@@ -430,6 +430,10 @@ public class FPPlayerController : MonoBehaviour
             Gallery.SetActive(false);            
             pointsActive = false;
         }
+        else if(other.tag == "WallKill")
+        {
+            Die();
+        }
     }
 
     void ShootingGalery()

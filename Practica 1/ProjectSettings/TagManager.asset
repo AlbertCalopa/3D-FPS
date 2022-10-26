@@ -12,6 +12,7 @@ TagManager:
   - NoGaleriaDeTiro
   - ObjetivosGaleria
   - Door
+  - WallKill
   layers:
   - Default
   - TransparentFX
