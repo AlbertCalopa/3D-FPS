@@ -71,6 +71,7 @@ public class HUD : MonoBehaviour
         textHealth.SetActive(false);
         textAmmo.SetActive(false);
         imageDeathLvl2.gameObject.SetActive(true);
+        textGallery1.SetActive(false);
     }
     public void Reset()
     {
