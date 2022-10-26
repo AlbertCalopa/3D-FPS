@@ -97,7 +97,8 @@ public class FPPlayerController : MonoBehaviour
 
     public ParticleSystem shootParticle;
 
-    
+
+    public HUD hud;
 
 
 
@@ -462,15 +463,17 @@ public class FPPlayerController : MonoBehaviour
 
 
 
-    void Die()
+    public void Die()
     {
         m_Health = 0.0f;
-        GameController.GetGameController().RestartGame();
+        hud.ActivateHudGameOver();
+        
+        //GameController.GetGameController().RestartGame();
 
     }
     public void RestartGame() 
     {
-        SceneManager.LoadScene("GameOver");
+        
         m_Health = 0.5f;
         m_Shield = 0.5f;
         m_Points = 0;
